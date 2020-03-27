@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import '../App.css';
+import Logo from '../images/Logo.png';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import './Navbar.css';
 
 
 class Navbar extends Component {
@@ -11,7 +13,7 @@ class Navbar extends Component {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className='container'> 
       <Link className="navbar-brand" to="/Home">
-         <img src='./src/images/Logo.png'/>
+         <img src={Logo}/>
       </Link>
       <button
         className="navbar-toggler"
