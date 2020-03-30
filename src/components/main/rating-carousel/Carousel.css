@@ -1,0 +1,21 @@
+/* .container1, img{
+height: 50px;
+}
+
+img{
+ display:block;
+ width: 100%;
+ height: auto;
+} */
+
+.info-keeper{
+    border: solid black;
+    margin-bottom: 10px;
+    width: 305px;
+}
+
+/* .container1-item{
+    position:relative;
+    justify-content: space-between;
+    padding-left: 10px;
+} */
