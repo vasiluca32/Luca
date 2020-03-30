@@ -10,7 +10,7 @@ class Carousel extends Component {
     constructor() {
         super();
         this.state = {
-            movieInfo: [],
+            results: [],
         }
     }
 
@@ -22,17 +22,8 @@ class Carousel extends Component {
             .then(results => {
                 return results.json();
             }).then(data => {
-                let info = data.results.map((res) => {
-                    return (
-                        <div class="info-keeper" key={res.results}>
-                            <img src={res.Poster} alt="logo" />
-                            <p>{res.Title}</p>
-                            <p>{res.imdbRating}</p>
 
-                        </div>
-                    )
-                })
-                this.setState({ movieInfo: info })
+                this.setState({ results: data.results })
                 // console.log("state", this.state.pictures);
                 // console.log(pictures);
 
@@ -51,7 +42,16 @@ class Carousel extends Component {
 
                 <div className="container1">
                     <LeftArrow />
-                    {this.state.movieInfo}
+                    {this.state.results.map((res) => {
+                        return (
+                            <div class="info-keeper" key={res.results}>
+                                <img src={res.Poster} alt="logo" />
+                                <p>{res.Title}</p>
+                                <p>{res.imdbRating}</p>
+
+                            </div>
+                        )
+                    })}
                     <RightArrow />
                 </div>
 
