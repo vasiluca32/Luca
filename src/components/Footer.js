@@ -27,10 +27,8 @@ const Footer = () => {
           </MDBContainer>
         </div>
         <div className="row">
-          <h4>About</h4>
-        </div>
-        <div className="row">
-          <h4>Help</h4>
+          <p className="col-sm">About</p>
+          <p className="col-sm">Help</p>
         </div>
 
         <hr />
