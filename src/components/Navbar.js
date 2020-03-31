@@ -7,13 +7,14 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import './Navbar.css';
 
 
+
 class Navbar extends Component {
     render () {
  return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className='container'> 
       <Link className="navbar-brand" to="/Home">
-         <img src={Logo}/>
+         <img src={Logo} alt="logo"/>
       </Link>
       <button
         className="navbar-toggler"
@@ -82,6 +83,9 @@ class Navbar extends Component {
               </Link>
               <Link className="dropdown-item" to="/SUPERHERO">
               SUPERHERO
+              </Link>
+              <Link className="dropdown-item" to="/FAMILY">
+              FAMILY
               </Link>
             </div>
           </li>
