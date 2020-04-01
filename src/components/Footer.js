@@ -5,9 +5,9 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <div className="main-footer">
+    <div className="page-footer fixed-bottom">
       <div className="container">
-        <div className="row">
+        <div className="row text-center">
           <MDBContainer>
             <MDBBtn size="lg" tag="a" floating social="fb">
               <MDBIcon fab icon="facebook-f" />
@@ -27,13 +27,13 @@ const Footer = () => {
           </MDBContainer>
         </div>
         <div className="row">
-          <p className="col-sm">About</p>
-          <p className="col-sm">Help</p>
+          <p className="col col-sm text-center">About</p>
+          <p className="col col-sm text-center">Help</p>
         </div>
 
         <hr />
         <div className="row">
-          <p className="col-sm">
+          <p className="col col-sm text-center">
             &copy; {new Date().getFullYear} Movie Website | All Right Reserved
             To Saturn Team |Privacy Policy
           </p>
