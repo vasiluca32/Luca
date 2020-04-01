@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "./Navbar.css";
 
+
 class Navbar extends Component {
   render() {
     return (
@@ -82,6 +83,9 @@ class Navbar extends Component {
                   <Link className="dropdown-item" to="/SUPERHERO">
                     SUPERHERO
                   </Link>
+                 <Link className="dropdown-item" to="/FAMILY">
+                 FAMILY
+              </Link>
                 </div>
               </li>
               <li className="nav-item ">
