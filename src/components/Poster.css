@@ -1,0 +1,15 @@
+.carousel-background {
+    background-color: #343a40;
+}
+
+.carousel-inner img {
+    height: 400px;
+}
+
+.carousel-control-prev-icon {
+    border-style: none;
+}
+
+.carousel-control-next-icon {
+    border-style: none;
+}
