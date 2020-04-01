@@ -8,11 +8,71 @@ img{
  height: auto;
 } */
 
-.info-keeper{
-    border: solid black;
-    margin-bottom: 10px;
-    width: 305px;
+
+body{
+    width:100%;
+    
 }
+
+.arrow:hover{
+    color:gold;
+    cursor: pointer;
+}
+
+.arrows{
+    display: flex;
+    align-items: center;
+    
+}
+
+p{
+    font-size: medium;
+    color: white;
+    margin-left: 5px;
+   
+}
+    
+h5{
+    color:white;
+}
+
+h5:hover{
+    color:gold;
+    cursor: pointer;
+}
+
+
+.arrow-wrap{
+    border: 1px solid white; 
+ 
+}
+
+
+.card-deck{
+    border: solid black;
+    background-color:black;
+    width: 100%;
+    padding: 0px 30px;
+}
+.card-body{
+   position: relative;
+  
+    background-color:rgb(27, 27, 27);
+    
+}
+
+.rating{
+    display: flex;
+    align-items: center;
+    
+}
+
+.star{
+    color: gold;
+    fill: gold;
+}
+
+
 
 /* .container1-item{
     position:relative;
