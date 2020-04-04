@@ -156,9 +156,11 @@ class Form extends Component {
                             <h3>Runtime</h3>
                         </div>
                         <div className="inputs">
-                            <input id="runtime-min" name="runtime-min" size="6"></input>
-                            to
-                            <input id="runtime-max" name="runtime-max" size="6"></input>
+                            <input type="number" id="runtime-min" name="runtime-min" size="3"></input>
+
+                                to
+
+                            <input type="number" id="runtime-max" name="runtime-max" size="6"></input>
                         </div>
                     </div>
 
@@ -204,6 +206,9 @@ class Form extends Component {
                             </select>
                         </div>
                     </div>
+                    <p>
+                        <button className="submit" type="submit">Search</button>
+                    </p>
 
                 </div>
             </form>
