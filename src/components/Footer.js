@@ -5,7 +5,7 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <div className="page-footer fixed-bottom">
+    <div className="page-footer">
       <div className="container">
         <div className="row text-center">
           <MDBContainer>
