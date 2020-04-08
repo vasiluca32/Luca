@@ -2,32 +2,36 @@ import React, { Component } from "react";
 import "./AdvancedSearch.css";
 import { generateYears } from "./AdvancedSearchUtils";
 import { YearSelector } from "./components/YearSelector";
+import { RuntimeSelector } from "./components/RuntimeSelector";
+import { CountrySelector } from "./components/CountrySelector";
+import { LanguageSelector } from "./components/LanguageSelector";
+import SubmitButton from "./components/SubmitButton";
+// import MovieList from "./components/MovieList";
+
+
 
 class Form extends Component {
   state = {
+    title: null,
     year: null,
+    genre: null,
+    runtime: null,
+    country: null,
+    language: null,
+
   };
 
   componentDidMount() {
     console.log("search-form-mounteed");
   }
 
-  // numbers() {
-  //     let x = i;
-  //     for (let i = 2020; i > 1900; i--) {
-  //         console.log(i);
-
-  //     }
-  //     return (
-  //         <option>{x}</option>
-
-  //     )
-
-  // }
-
   handleClickYear = (year) => {
     this.setState({ year });
+
   };
+  handleClickRuntime = (minutes) => {
+    this.setState({ minutes });
+  }
 
   render() {
     console.log(this.state);
@@ -36,6 +40,8 @@ class Form extends Component {
       <form className="form-wraper">
         <div className="main">
           <p>This is the form for an advanced search</p>
+
+
           <div className="clause">
             <div className="label">
               <h3>Title</h3>
@@ -123,74 +129,12 @@ class Form extends Component {
             </div>
           </div>
 
-          <div className="clause">
-            <div className="label">
-              <h3>Runtime</h3>
-            </div>
-            <div className="inputs">
-              <input
-                type="number"
-                id="runtime-min"
-                name="runtime-min"
-                size="3"
-              ></input>
-              to
-              <input
-                type="number"
-                id="runtime-max"
-                name="runtime-max"
-                size="6"
-              ></input>
-            </div>
-          </div>
+          <RuntimeSelector onClick={this.handleClickRuntime} />
+          <CountrySelector />
+          <LanguageSelector />
+          <SubmitButton />
 
-          <div className="clause">
-            <div className="label">
-              <h3>Country</h3>
-            </div>
-            <div className="inputs">
-              <select multiple name="countries" class="countries" size="7">
-                <option>USA</option>
-                <option>UK</option>
-                <option>Denmark</option>
-                <option>Japan</option>
-                <option>South Korea</option>
-                <option>Canada</option>
-                <option>Romania</option>
-                <option>Philippines</option>
-                <option>France</option>
-              </select>
-            </div>
-          </div>
 
-          <div className="clause">
-            <div className="label">
-              <h3>Languages</h3>
-            </div>
-            <div className="inputs">
-              <select multiple name="countries" class="countries" size="7">
-                <option>USA</option>
-                <option>English</option>
-                <option>Mandarin</option>
-                <option>French</option>
-                <option>Spanish</option>
-                <option>Japanese</option>
-                <option>Portuguese</option>
-                <option>Thai</option>
-                <option>Esperanto</option>
-                <option>Italian</option>
-                <option>German</option>
-                <option>Romanian</option>
-                <option>Filipino</option>
-                <option>Tagalog</option>
-              </select>
-            </div>
-          </div>
-          <p>
-            <button className="submit" type="submit">
-              Search
-            </button>
-          </p>
         </div>
       </form>
     );
