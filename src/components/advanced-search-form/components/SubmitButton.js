@@ -1,29 +1,19 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import MovieList from "../MovieList";
+import React from "react";
 
 
-class SubmitButton extends Component {
+export function SubmitButton(props) {
 
-    handleClick() {
-        console.log("clickkkkked");
-        // let x = new MovieList;
-        // x.render();
+    return (
+        <div>
 
-    }
-
-    render() {
-        return (
-            <div>
-
-                <button className="submit" type="button" onClick={this.handleClick}  >
-                    Search
+            <button className="submit" type="button"  >
+                Search
                 </button>
 
-            </div >
-        )
-    }
+        </div >
+    )
+
 }
 
-export default SubmitButton;
+
 

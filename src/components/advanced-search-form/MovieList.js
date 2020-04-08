@@ -2,15 +2,21 @@ import React, { Component } from "react";
 
 
 class MovieList extends Component {
-    constructor() {
-        super();
-    }
+
 
 
     componentDidMount() {
-        console.log("movie list");
+        console.log(this.props);
     }
+
+
+
     render() {
+        const details = this.props;
+        console.log(details);
+
+
+
         return (
 
             <p>abc</p>
@@ -20,4 +26,4 @@ class MovieList extends Component {
 
 }
 
-export default new MovieList;
+export default MovieList;

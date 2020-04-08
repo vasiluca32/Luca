@@ -7,7 +7,7 @@ export function LanguageSelector(props) {
                 <h3>Languages</h3>
             </div>
             <div className="inputs">
-                <select multiple name="countries" class="countries" size="7">
+                <select multiple name="countries" className="countries" size="7">
                     <option>USA</option>
                     <option>English</option>
                     <option>Mandarin</option>

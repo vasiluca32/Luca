@@ -8,20 +8,20 @@ export function RuntimeSelector(props) {
                 <h3>Runtime</h3>
             </div>
             <div className="inputs">
-                <select name="runtime-min" id="runtime-min" className="minutes">
-                    {generateMinutes().map((minutes, index) => (
+                <select name="runtime-min" id="runtime-min" className="minutes" >
+                    {generateMinutes().map((minutesMin, index) => (
 
-                        <option key={index} value="min" onClick={() => props.onClick(minutes)}>
-                            {minutes}
+                        <option key={index} value="min" onClick={() => props.onClick(minutesMin)}>
+                            {minutesMin}
                         </option>
                     ))}
                 </select>
               to
-              <select id="runtime-max" name="runtime-max">
-                    {generateMinutes().map((minutes, index) => (
+              <select id="runtime-max" name="runtime-max" >
+                    {generateMinutes().map((minutesMax, index) => (
 
-                        <option key={index} value="min" onClick={() => props.onClick(minutes)}>
-                            {minutes}
+                        <option key={index} value="min" onClick={() => props.onClick(minutesMax)}>
+                            {minutesMax}
                         </option>
                     ))}
                 </select>

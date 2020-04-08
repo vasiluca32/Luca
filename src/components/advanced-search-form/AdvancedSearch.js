@@ -5,17 +5,16 @@ import { YearSelector } from "./components/YearSelector";
 import { RuntimeSelector } from "./components/RuntimeSelector";
 import { CountrySelector } from "./components/CountrySelector";
 import { LanguageSelector } from "./components/LanguageSelector";
-import SubmitButton from "./components/SubmitButton";
-// import MovieList from "./components/MovieList";
-
-
+import { SubmitButton } from "./components/SubmitButton";
+import { Link } from "react-router-dom";
 
 class Form extends Component {
   state = {
     title: null,
     year: null,
     genre: null,
-    runtime: null,
+    minutesMin: null,
+    minutesMax: null,
     country: null,
     language: null,
 
@@ -29,13 +28,15 @@ class Form extends Component {
     this.setState({ year });
 
   };
-  handleClickRuntime = (minutes) => {
-    this.setState({ minutes });
+  handleClickRuntime = (minutesMin, minutesMax) => {
+    this.setState({ minutesMin });
+    this.setState({ minutesMax });
+  }
+  handleClickCountry = (country) => {
+    this.setState({ country })
   }
 
-  handleSubmit = () => {
-    console.log("clikkkkkkk")
-  }
+
 
   render() {
     console.log(this.state);
@@ -134,10 +135,22 @@ class Form extends Component {
           </div>
 
           <RuntimeSelector onClick={this.handleClickRuntime} />
-          <CountrySelector />
+          <CountrySelector onClick={this.handleClickCountry} />
           <LanguageSelector />
-          <SubmitButton onClick={this.handleSubmit} />
-
+          <Link to={{
+            pathname: "/MovieList",
+            state: {
+              title: this.state.title,
+              year: this.state.year,
+              genre: this.state.genre,
+              minutesMin: this.state.minutesMin,
+              minutesMax: this.state.minutesMax,
+              country: this.state.country,
+              language: this.state.language
+            }
+          }}>
+            <SubmitButton />
+          </Link>
 
         </div>
       </form>

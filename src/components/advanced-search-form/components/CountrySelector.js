@@ -1,6 +1,8 @@
 import React from "react";
 
 export function CountrySelector(props) {
+
+    let country = "USA"
     return (
 
         <div className="clause">
@@ -8,16 +10,16 @@ export function CountrySelector(props) {
                 <h3>Country</h3>
             </div>
             <div className="inputs">
-                <select multiple name="countries" class="countries" size="7">
-                    <option>USA</option>
-                    <option>UK</option>
-                    <option>Denmark</option>
-                    <option>Japan</option>
-                    <option>South Korea</option>
-                    <option>Canada</option>
-                    <option>Romania</option>
-                    <option>Philippines</option>
-                    <option>France</option>
+                <select multiple name="countries" className="countries" size="7">
+                    <option value="USA" onClick={() => props.onClick(country)}>{country}</option>
+                    <option value="UK">UK</option>
+                    <option value="Denmark">Denmark</option>
+                    <option value="Japan">Japan</option>
+                    <option value="South Korea">South Korea</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Romania">Romania</option>
+                    <option value="Philippines">Philippines</option>
+                    <option value="France">France</option>
                 </select>
             </div>
         </div>
