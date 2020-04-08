@@ -1,27 +1,27 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import MovieList from "./MovieList";
-
+import MovieList from "../MovieList";
 
 
 class SubmitButton extends Component {
 
     handleClick() {
         console.log("clickkkkked");
-        const b = new MovieList();
-        b.render();
+        // let x = new MovieList;
+        // x.render();
 
     }
+
     render() {
         return (
             <div>
 
-                <button className="submit" type="button" onClick={this.handleClick} >
+                <button className="submit" type="button" onClick={this.handleClick}  >
                     Search
                 </button>
 
-            </div>
-        );
+            </div >
+        )
     }
 }
 

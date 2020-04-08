@@ -33,6 +33,10 @@ class Form extends Component {
     this.setState({ minutes });
   }
 
+  handleSubmit = () => {
+    console.log("clikkkkkkk")
+  }
+
   render() {
     console.log(this.state);
 
@@ -132,7 +136,7 @@ class Form extends Component {
           <RuntimeSelector onClick={this.handleClickRuntime} />
           <CountrySelector />
           <LanguageSelector />
-          <SubmitButton />
+          <SubmitButton onClick={this.handleSubmit} />
 
 
         </div>

@@ -20,4 +20,4 @@ class MovieList extends Component {
 
 }
 
-export default MovieList;
+export default new MovieList;
