@@ -7,6 +7,7 @@ import { CountrySelector } from "./components/CountrySelector";
 import { LanguageSelector } from "./components/LanguageSelector";
 import { SubmitButton } from "./components/SubmitButton";
 import { Link } from "react-router-dom";
+import { MovieList } from "./MovieList";
 
 class Form extends Component {
   state = {
