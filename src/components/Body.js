@@ -14,7 +14,6 @@ import Adventure from "../pages/Adventure";
 import Fantasy from "../pages/Fantasy";
 import Family from "../pages/Family";
 import AdvancedSearch from "../pages/AdvancedSearch";
-import MovieList from "../components/advanced-search-form/MovieList"
 import "./Body.css";
 
 export function Body() {
@@ -36,7 +35,6 @@ export function Body() {
       <Route exact path="/FANTASY" component={Fantasy} />
       <Route exact path="/FAMILY" component={Family} />
       <Route exact path="/Advanced Search" component={AdvancedSearch} />
-      <Route exact path="/MovieList" component={MovieList} />
     </div>
   );
 }

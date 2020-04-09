@@ -18,6 +18,7 @@ import Fantasy from "../pages/Fantasy.js";
 import Family from "../pages/Family.js";
 import AdvancedSearch from "../pages/AdvancedSearch.js";
 import MovieDetails from "./MovieDetails";
+import MovieList from "../components/advanced-search-form/MovieList";
 
 export default function Header() {
   return (
@@ -41,6 +42,7 @@ export default function Header() {
         <Route exact path="/FANTASY" component={Fantasy} />
         <Route exact path="/FAMILY" component={Family} />
         <Route exact path="/Advanced Search" component={AdvancedSearch} />
+        <Route exact path="/MovieList" component={MovieList} />
       </div>
     </Router>
 
