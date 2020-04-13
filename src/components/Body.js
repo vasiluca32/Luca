@@ -38,7 +38,7 @@ export function Body() {
       <Route exact path="/FAMILY" component={Family} />
       <Route exact path="/Advanced Search" component={AdvancedSearch} />
       <Route exact path="/MovieList" component={MovieList} />
-      <Route exact path="/Register-Login" component={Login} /> */}
+      <Route exact path="/Register-Login" component={Login} />
     </div>
   );
 }
