@@ -1,9 +1,9 @@
-import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';//permite navigarea pe pagini
-import '../App.css';
-import Navbar from './Navbar.js';
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom"; //permite navigarea pe pagini
+import "../App.css";
+import Navbar from "./Navbar.js";
 import Home from "../pages/Home.js";
-import Action from '../pages/Action.js';
+import Action from "../pages/Action.js";
 import Comedy from "../pages/Comedy.js";
 import Scifi from "../pages/Scifi.js";
 import Horror from "../pages/Horror.js";
@@ -19,6 +19,7 @@ import Family from "../pages/Family.js";
 import AdvancedSearch from "../pages/AdvancedSearch.js";
 import MovieDetails from "./MovieDetails";
 import MovieList from "../components/advanced-search-form/MovieList";
+import Login from "../pages/Login";
 
 export default function Header() {
   return (
@@ -43,8 +44,8 @@ export default function Header() {
         <Route exact path="/FAMILY" component={Family} />
         <Route exact path="/Advanced Search" component={AdvancedSearch} />
         <Route exact path="/MovieList" component={MovieList} />
+        <Route exact path="/Register-Login" component={Login} />
       </div>
     </Router>
-
   );
 }
