@@ -8,7 +8,7 @@ export function RuntimeSelector(props) {
                 <h3>Runtime</h3>
             </div>
             <div className="inputs">
-                <select name="runtime-min" id="runtime-min" className="minutes" size="5">
+                <select name="runtime-min" id="runtime-min" className="minutes">
                     {generateMinutes().map((minutesMin, index) => (
 
                         <option key={index} value="min" onClick={() => props.onClick(minutesMin)}>

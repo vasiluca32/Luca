@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import './Carousel.css';
 
 
-const url = "https://movies-api-siit.herokuapp.com/movies?take=96"
+const url = "https://movies-api-siit.herokuapp.com/movies?take=1000000"
 
 class Carousel extends Component {
 

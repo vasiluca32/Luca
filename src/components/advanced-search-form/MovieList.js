@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import NoPoster from "../../images/NoPoster.png";
 
 
 class MovieList extends Component {
@@ -20,7 +20,7 @@ class MovieList extends Component {
         let language = this.props.location.state.language;
 
         if (country) {
-            url = url + "Country=" + country
+            url = url + "Country=" + country + "&take=100"
         }
         if (language) {
             url = url + "&Language=" + language
@@ -44,6 +44,7 @@ class MovieList extends Component {
     }
 
     render() {
+        let Test = "../../images/NoPoster.png";
         const details = this.props;
         console.log(details);
         console.log(this.state.results)
@@ -54,7 +55,7 @@ class MovieList extends Component {
                 <h1>Here are your search results </h1>
                 {this.state.results.map((movie) => {
 
-                    let moviePoster = "no poster found";
+                    let moviePoster = NoPoster;
                     if (movie.Poster && movie.Poster !== "N/A") {
                         moviePoster = movie.Poster;
                     }

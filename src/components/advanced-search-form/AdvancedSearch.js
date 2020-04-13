@@ -41,7 +41,7 @@ class Form extends Component {
 
 
   render() {
-    // console.log(this.state);
+    console.log(this.state);
 
     return (
       <form className="form-wraper">
