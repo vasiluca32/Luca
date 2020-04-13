@@ -79,12 +79,10 @@ class Navbar extends Component {
                   <Link className="dropdown-item" to="/FANTASY">
                     FANTASY
                   </Link>
-                  <Link className="dropdown-item" to="/SUPERHERO">
-                    SUPERHERO
-                  </Link>
-                  <Link className="dropdown-item" to="/FAMILY">
-                    FAMILY
-                  </Link>
+
+                 <Link className="dropdown-item" to="/FAMILY">
+                 FAMILY
+              </Link>
                 </div>
               </li>
               <li className="nav-item ">
