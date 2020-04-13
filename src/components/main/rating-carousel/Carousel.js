@@ -98,10 +98,3 @@ class Carousel extends Component {
 
 export default Carousel;
 
-
-{/* <div className="info-keeper" key={res.results}>
-<img src={res.Poster} alt="logo" />
-<p>{res.Title}</p>
-<p>{res.imdbRating}</p>
-
-</div> */}

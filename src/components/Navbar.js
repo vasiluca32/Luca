@@ -1,11 +1,10 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, {Component} from "react";
+import {Link} from "react-router-dom";
 import "../App.css";
 import Logo from "../images/Logo.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faSearch} from "@fortawesome/free-solid-svg-icons";
 import "./Navbar.css";
-
 
 class Navbar extends Component {
   render() {
@@ -13,7 +12,7 @@ class Navbar extends Component {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
           <Link className="navbar-brand" to="/Home">
-            <img src={Logo} />
+            <img src={Logo} alt="Movie Website"/>
           </Link>
           <button
             className="navbar-toggler"
@@ -80,6 +79,7 @@ class Navbar extends Component {
                   <Link className="dropdown-item" to="/FANTASY">
                     FANTASY
                   </Link>
+
                  <Link className="dropdown-item" to="/FAMILY">
                  FAMILY
               </Link>
@@ -91,7 +91,7 @@ class Navbar extends Component {
                   Advanced Search{" "}
                   <span>
                     {" "}
-                    <FontAwesomeIcon icon={faSearch} />{" "}
+                    <FontAwesomeIcon icon={faSearch}/>{" "}
                   </span>
                 </Link>
               </li>
