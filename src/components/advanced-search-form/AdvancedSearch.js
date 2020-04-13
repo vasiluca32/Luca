@@ -17,7 +17,6 @@ class Form extends Component {
     minutesMax: null,
     country: null,
     language: null,
-
   };
 
   componentDidMount() {
@@ -26,19 +25,17 @@ class Form extends Component {
 
   handleClickYear = (year) => {
     this.setState({ year });
-
   };
-  handleClickRuntime = (minutesMin, minutesMax) => {
-    this.setState({ minutesMin });
-    this.setState({ minutesMax });
-  }
+  handleClickRuntime = (value, type) => {
+    console.log(value, type);
+    this.setState({ [type]: value });
+  };
   handleClickCountry = (country) => {
-    this.setState({ country })
-  }
+    this.setState({ country });
+  };
   handleClickLanguage = (language) => {
-    this.setState({ language })
-  }
-
+    this.setState({ language });
+  };
 
   render() {
     // console.log(this.state);
@@ -47,7 +44,6 @@ class Form extends Component {
       <form className="form-wraper">
         <div className="main">
           <p>This is the form for an advanced search</p>
-
 
           <div className="clause">
             <div className="label">
@@ -138,24 +134,25 @@ class Form extends Component {
             </div>
           </div>
 
-          <RuntimeSelector onClick={this.handleClickRuntime} />
+          <RuntimeSelector onChange={this.handleClickRuntime} />
           <CountrySelector onClick={this.handleClickCountry} />
           <LanguageSelector onClick={this.handleClickLanguage} />
-          <Link to={{
-            pathname: "/MovieList",
-            state: {
-              title: this.state.title,
-              year: this.state.year,
-              genre: this.state.genre,
-              minutesMin: this.state.minutesMin,
-              minutesMax: this.state.minutesMax,
-              country: this.state.country,
-              language: this.state.language
-            }
-          }}>
+          <Link
+            to={{
+              pathname: "/MovieList",
+              state: {
+                title: this.state.title,
+                year: this.state.year,
+                genre: this.state.genre,
+                minutesMin: this.state.minutesMin,
+                minutesMax: this.state.minutesMax,
+                country: this.state.country,
+                language: this.state.language,
+              },
+            }}
+          >
             <SubmitButton />
           </Link>
-
         </div>
       </form>
     );
