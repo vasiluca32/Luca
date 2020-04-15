@@ -1,12 +1,13 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import "./AdvancedSearch.css";
-import { generateYears } from "./AdvancedSearchUtils";
-import { YearSelector } from "./components/YearSelector";
-import { RuntimeSelector } from "./components/RuntimeSelector";
-import { CountrySelector } from "./components/CountrySelector";
-import { LanguageSelector } from "./components/LanguageSelector";
-import { SubmitButton } from "./components/SubmitButton";
-import { Link } from "react-router-dom";
+import {TitleSelector} from "./components/TitleSelector";
+import GenresSelector from "./components/GenresSelector";
+import {YearSelector} from "./components/YearSelector";
+import {RuntimeSelector} from "./components/RuntimeSelector";
+import {CountrySelector} from "./components/CountrySelector";
+import {LanguageSelector} from "./components/LanguageSelector";
+import {SubmitButton} from "./components/SubmitButton";
+import {Link} from "react-router-dom";
 
 class Form extends Component {
   state = {
@@ -24,20 +25,25 @@ class Form extends Component {
     console.log("search-form-mounteed");
   }
 
+  handleClickTitle = (title) => {
+    this.setState({title});
+  };
   handleClickYear = (year) => {
-    this.setState({ year });
-
+    this.setState({year});
+  };
+  handleClickGenre = (genre) => {
+    this.setState({genre});
   };
   handleClickRuntime = (minutesMin, minutesMax) => {
-    this.setState({ minutesMin });
-    this.setState({ minutesMax });
-  }
+    this.setState({minutesMin});
+    this.setState({minutesMax});
+  };
   handleClickCountry = (country) => {
-    this.setState({ country })
-  }
+    this.setState({country})
+  };
   handleClickLanguage = (language) => {
-    this.setState({ language })
-  }
+    this.setState({language})
+  };
 
 
   render() {
@@ -48,99 +54,12 @@ class Form extends Component {
         <div className="main">
           <p>This is the form for an advanced search</p>
 
-
-          <div className="clause">
-            <div className="label">
-              <h3>Title</h3>
-            </div>
-            <div className="inputs">
-              <input id="title" name="title" type="text" size="75"></input>
-              <br></br>
-              <em>e.g. The Godfather</em>
-            </div>
-          </div>
-
-          <YearSelector onClick={this.handleClickYear} />
-
-          <div className="clause">
-            <div className="label">
-              <h3>Genres</h3>
-            </div>
-            <div className="inputs">
-              <table>
-                <tbody>
-                  <tr>
-                    <td>
-                      <input id="action" type="checkbox"></input>
-                      <label>Action</label>
-                    </td>
-                    <td>
-                      <input id="adventure" type="checkbox"></input>
-                      <label>Adventure</label>
-                    </td>
-                    <td>
-                      <input id="animation" type="checkbox"></input>
-                      <label>Animation</label>
-                    </td>
-                    <td>
-                      <input id="comedy" type="checkbox"></input>
-                      <label>Comedy</label>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <input id="crime" type="checkbox"></input>
-                      <label>Crime</label>
-                    </td>
-                    <td>
-                      <input id="drama" type="checkbox"></input>
-                      <label>Drama</label>
-                    </td>
-                    <td>
-                      <input id="family" type="checkbox"></input>
-                      <label>Family</label>
-                    </td>
-                    <td>
-                      <input id="fantasy" type="checkbox"></input>
-                      <label>Fantasy</label>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <input id="horror" type="checkbox"></input>
-                      <label>Horror</label>
-                    </td>
-                    <td>
-                      <input id="mistery" type="checkbox"></input>
-                      <label>Mistery</label>
-                    </td>
-                    <td>
-                      <input id="romance" type="checkbox"></input>
-                      <label>Romance</label>
-                    </td>
-                    <td>
-                      <input id="sci-fi" type="checkbox"></input>
-                      <label>SCI-FI</label>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <input id="superhero" type="checkbox"></input>
-                      <label>Superhero</label>
-                    </td>
-                    <td>
-                      <input id="thriller" type="checkbox"></input>
-                      <label>Thriller</label>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <RuntimeSelector onClick={this.handleClickRuntime} />
-          <CountrySelector onClick={this.handleClickCountry} />
-          <LanguageSelector onClick={this.handleClickLanguage} />
+          <TitleSelector onChange={this.handleClickTitle}/>
+          <YearSelector onClick={this.handleClickYear}/>
+          <GenresSelector handleGenre={this.handleClickGenre.bind(this)}/>
+          <RuntimeSelector onClick={this.handleClickRuntime}/>
+          <CountrySelector onClick={this.handleClickCountry}/>
+          <LanguageSelector onClick={this.handleClickLanguage}/>
           <Link to={{
             pathname: "/MovieList",
             state: {
@@ -153,7 +72,7 @@ class Form extends Component {
               language: this.state.language
             }
           }}>
-            <SubmitButton />
+            <SubmitButton/>
           </Link>
 
         </div>
