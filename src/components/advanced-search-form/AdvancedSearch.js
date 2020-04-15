@@ -37,6 +37,20 @@ class Form extends Component {
     this.setState({ language });
   };
 
+  handleSubmit = () => {
+    this.resetState();
+  }
+  resetState = () => {
+    this.setState({
+      title: null,
+      year: null,
+      genre: null,
+      minutesMin: null,
+      minutesMax: null,
+      country: null,
+      language: null,
+    })
+  }
   render() {
     console.log(this.state);
 
@@ -151,7 +165,7 @@ class Form extends Component {
               },
             }}
           >
-            <SubmitButton />
+            <SubmitButton onClick={this.handleSubmit} />
           </Link>
         </div>
       </form>
