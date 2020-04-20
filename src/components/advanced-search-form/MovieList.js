@@ -15,19 +15,30 @@ class MovieList extends Component {
     componentDidMount() {
         console.log(this.props);
         let url = "https://movies-api-siit.herokuapp.com/movies?"
-        let minutesMin = this.props.location.state.minutesMin;
+        // let minutesMin = this.props.location.state.minutesMin;
         let country = this.props.location.state.country;
         let language = this.props.location.state.language;
 
-        if (country) {
-            url = url + "Country=" + country + "&take=100"
+        if (country.length > 0) {
+            url = url + "Country=";
+            for (let i = 0; i < country.length; i++) {
+
+                url = url + country[i] + ", ";
+
+            }
+            url = url.slice(0, -2);
         }
-        if (language) {
-            url = url + "&Language=" + language
+        console.log(language)
+        if (language.length > 0) {
+            url = url + "&Language="
+            for (let i = 0; i < language.length; i++) {
+
+                url = url + language[i] + ", ";
+
+            }
+            url = url.slice(0, -2);
         }
-        // if (minutesMin) {
-        //     url = url + "Runtime=" + minutesMin
-        // }
+
         console.log(url);
 
 
@@ -44,7 +55,6 @@ class MovieList extends Component {
     }
 
     render() {
-        let Test = "../../images/NoPoster.png";
         const details = this.props;
         console.log(details);
         console.log(this.state.results)

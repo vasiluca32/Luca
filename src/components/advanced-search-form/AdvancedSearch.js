@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./AdvancedSearch.css";
-import { generateYears } from "./AdvancedSearchUtils";
+// import { generateYears } from "./AdvancedSearchUtils";
 import { YearSelector } from "./components/YearSelector";
 import { RuntimeSelector } from "./components/RuntimeSelector";
 import { CountrySelector } from "./components/CountrySelector";
@@ -15,8 +15,8 @@ class Form extends Component {
     genre: null,
     minutesMin: null,
     minutesMax: null,
-    country: null,
-    language: null,
+    country: [],
+    language: [],
   };
 
   componentDidMount() {
@@ -26,15 +26,28 @@ class Form extends Component {
   handleClickYear = (year) => {
     this.setState({ year });
   };
+
   handleClickRuntime = (value, type) => {
     console.log(value, type);
     this.setState({ [type]: value });
   };
-  handleClickCountry = (country) => {
-    this.setState({ country });
+
+  handleClickCountry = (value) => {
+    this.setState(state => {
+      const country = state.country.concat(value);
+      return {
+        country,
+      }
+    });
   };
-  handleClickLanguage = (language) => {
-    this.setState({ language });
+
+  handleClickLanguage = (value) => {
+    this.setState(state => {
+      const language = state.language.concat(value);
+      return {
+        language,
+      }
+    });
   };
 
   handleSubmit = () => {
@@ -150,7 +163,7 @@ class Form extends Component {
 
           <RuntimeSelector onChange={this.handleClickRuntime} />
           <CountrySelector onClick={this.handleClickCountry} />
-          <LanguageSelector onClick={this.handleClickLanguage} />
+          <LanguageSelector onChange={this.handleClickLanguage} />
           <Link
             to={{
               pathname: "/MovieList",
