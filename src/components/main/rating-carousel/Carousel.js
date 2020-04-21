@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import './Carousel.css';
 
 
-const url = "https://movies-api-siit.herokuapp.com/movies?take=96"
+const url = "https://movies-api-siit.herokuapp.com/movies?take=1000000"
 
 class Carousel extends Component {
 
@@ -67,7 +67,7 @@ class Carousel extends Component {
                     return (
 
                         <div className="card">
-                            <img src={res.Poster} className="card-img-top" alt="logo" />
+                            <img key={currentMovieIndex} src={res.Poster} className="card-img-top" alt="logo" />
                             <div className="card-body">
                                 <div className="rating">
                                     <svg className="star" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
