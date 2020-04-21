@@ -1,13 +1,13 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./AdvancedSearch.css";
-import {TitleSelector} from "./components/TitleSelector";
+import { TitleSelector } from "./components/TitleSelector";
 import GenresSelector from "./components/GenresSelector";
-import {YearSelector} from "./components/YearSelector";
-import {RuntimeSelector} from "./components/RuntimeSelector";
-import {CountrySelector} from "./components/CountrySelector";
-import {LanguageSelector} from "./components/LanguageSelector";
-import {SubmitButton} from "./components/SubmitButton";
-import {Link} from "react-router-dom";
+import { YearSelector } from "./components/YearSelector";
+import { RuntimeSelector } from "./components/RuntimeSelector";
+import { CountrySelector } from "./components/CountrySelector";
+import { LanguageSelector } from "./components/LanguageSelector";
+import { SubmitButton } from "./components/SubmitButton";
+import { Link } from "react-router-dom";
 
 class Form extends Component {
   state = {
@@ -25,18 +25,18 @@ class Form extends Component {
   }
 
   handleClickTitle = (title) => {
-    this.setState({title});
+    this.setState({ title });
   };
+
   handleClickYear = (year) => {
 
     this.setState({ year });
   };
 
 
-    this.setState({year});
-  };
+
   handleClickGenre = (genre) => {
-    this.setState({genre});
+    this.setState({ genre });
   };
 
   handleClickRuntime = (value, type) => {
@@ -82,12 +82,12 @@ class Form extends Component {
       <form className="form-wraper">
         <div className="main">
           <p>This is the form for an advanced search</p>
-          <TitleSelector onChange={this.handleClickTitle}/>
-          <YearSelector onClick={this.handleClickYear}/>
-          <GenresSelector handleGenre={this.handleClickGenre.bind(this)}/>
-          <RuntimeSelector onClick={this.handleClickRuntime}/>
-          <CountrySelector onClick={this.handleClickCountry}/>
-          <LanguageSelector onClick={this.handleClickLanguage}/>
+          <TitleSelector onChange={this.handleClickTitle} />
+          <YearSelector onClick={this.handleClickYear} />
+          <GenresSelector handleGenre={this.handleClickGenre.bind(this)} />
+          <RuntimeSelector onClick={this.handleClickRuntime} />
+          <CountrySelector onChange={this.handleClickCountry} />
+          <LanguageSelector onChange={this.handleClickLanguage} />
           <Link to={{
             pathname: "/MovieList",
             state: {
