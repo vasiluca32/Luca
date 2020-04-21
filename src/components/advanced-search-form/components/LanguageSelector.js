@@ -2,8 +2,8 @@ import React from "react";
 import "./language.css";
 
 export function LanguageSelector(props) {
-
     let languages = ["USA", "English", "Mandarin", "French", "Spanish", "Japanese", "Portuguese", "Thai", "Esperanto", "Italian", "German", "Romanian", "Filipino", "Tagalog"]
+
     return (
         <div className="clause">
             <div className="label">
@@ -18,8 +18,6 @@ export function LanguageSelector(props) {
                             {language}
                         </option>
                     ))}
-
-
                 </select>
             </div>
         </div>
