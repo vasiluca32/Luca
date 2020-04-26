@@ -20,23 +20,29 @@ class Form extends Component {
     language: [],
   };
 
+
+
   componentDidMount() {
     console.log("search-form-mounteed");
   }
 
   handleClickTitle = (title) => {
     this.setState({ title });
+    document.getElementById("runtime-min").disabled = false;
+    document.getElementById("runtime-max").disabled = false;
+
   };
 
   handleClickYear = (year) => {
-
     this.setState({ year });
+    document.getElementById("runtime-min").disabled = false;
+    document.getElementById("runtime-max").disabled = false;
   };
-
-
 
   handleClickGenre = (genre) => {
     this.setState({ genre });
+    document.getElementById("runtime-min").disabled = false;
+    document.getElementById("runtime-max").disabled = false;
   };
 
   handleClickRuntime = (value, type) => {
@@ -51,14 +57,19 @@ class Form extends Component {
         country,
       }
     });
+    document.getElementById("runtime-min").disabled = false;
+    document.getElementById("runtime-max").disabled = false;
   };
   handleClickLanguage = (value) => {
     this.setState(state => {
       const language = state.language.concat(value);
+      console.log(language)
       return {
         language,
       }
     });
+    document.getElementById("runtime-min").disabled = false;
+    document.getElementById("runtime-max").disabled = false;
   };
 
   handleSubmit = () => {
@@ -76,7 +87,7 @@ class Form extends Component {
     })
   }
   render() {
-    console.log(this.state);
+
 
     return (
       <form className="form-wraper">
@@ -85,9 +96,9 @@ class Form extends Component {
           <TitleSelector onChange={this.handleClickTitle} />
           <YearSelector onClick={this.handleClickYear} />
           <GenresSelector handleGenre={this.handleClickGenre.bind(this)} />
-          <RuntimeSelector onClick={this.handleClickRuntime} />
+          <RuntimeSelector onChange={this.handleClickRuntime} />
           <CountrySelector onChange={this.handleClickCountry} />
-          <LanguageSelector onChange={this.handleClickLanguage} />
+          <LanguageSelector onClick={this.handleClickLanguage} />
           <Link to={{
             pathname: "/MovieList",
             state: {

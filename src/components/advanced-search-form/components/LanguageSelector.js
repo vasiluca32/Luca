@@ -1,5 +1,4 @@
 import React from "react";
-import "./language.css";
 
 export function LanguageSelector(props) {
     let languages = ["USA", "English", "Mandarin", "French", "Spanish", "Japanese", "Portuguese", "Thai", "Esperanto", "Italian", "German", "Romanian", "Filipino", "Tagalog"]
@@ -11,10 +10,10 @@ export function LanguageSelector(props) {
             </div>
             <div className="inputs">
                 <select multiple name="language" className="language" size="7" onChange={(event) =>
-                    props.onChange(event.currentTarget.value)
+                    props.onClick(event.currentTarget.value)
                 }>
                     {languages.map((language, index) => (
-                        <option key={index} value={language} >
+                        <option key={index} value={language}>
                             {language}
                         </option>
                     ))}
