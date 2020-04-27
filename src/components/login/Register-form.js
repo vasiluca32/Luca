@@ -3,20 +3,22 @@ import { Link } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import "./Login.css";
 
-class LoginForm extends Component {
+class RegisterForm extends Component {
   constructor() {
     super();
-    this.usernameField = React.createRef();
-    this.passwordField = React.createRef();
+    this.usernameRegField = React.createRef();
+    this.password1RegField = React.createRef();
+    this.password2RegField = React.createRef();
   }
 
   componentDidMount() {
-    console.log("login-form-mounteed");
+    console.log("register-form-mounteed");
   }
-  LoginUser() {
-    let url = `https://movies-app-siit.herokuapp.com/auth/login`;
-    let username = this.usernameField.current.value;
-    let password = this.passwordField.current.value;
+
+  RegisterUser() {
+    let url = `https://movies-app-siit.herokuapp.com/auth/register`;
+    let username = this.usernameRegField.current.value;
+    let password = this.password1RegField.current.value;
     console.log(username);
     console.log(password);
 
@@ -46,13 +48,13 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div className=" loginform row mx-auto">
+      <div className=" loginform row">
         <div className="container col">
           <Form>
             <Form.Group controlId="formGroupEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
-                ref={this.usernameField}
+                ref={this.usernameRegField}
                 type="email"
                 placeholder="Enter email"
               />
@@ -60,25 +62,32 @@ class LoginForm extends Component {
             <Form.Group controlId="formGroupPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control
-                ref={this.passwordField}
+                ref={this.password1RegField}
                 type="password"
                 placeholder="Password"
               />
             </Form.Group>
+            {/* <Form.Group controlId="formGroupPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                ref={this.password2RegField}
+                type="password"
+                placeholder="Password"
+              />
+            </Form.Group> */}
           </Form>
           <Link className="register" to="/Home">
             <button
+              onClick={() => this.RegisterUser()}
               type="button"
               className="btn btn-dark"
-              onClick={() => this.LoginUser()}
             >
-              Login
+              Register
             </button>
           </Link>
         </div>
-        <div></div>
       </div>
     );
   }
 }
-export default LoginForm;
+export default RegisterForm;

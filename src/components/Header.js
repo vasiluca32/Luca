@@ -20,6 +20,7 @@ import AdvancedSearch from "../pages/AdvancedSearch.js";
 import MovieDetails from "./MovieDetails";
 import MovieList from "../components/advanced-search-form/MovieList";
 import Login from "../pages/Login";
+import Register from "../pages/Register";
 
 export default function Header() {
   return (
@@ -44,7 +45,8 @@ export default function Header() {
         <Route exact path="/FAMILY" component={Family} />
         <Route exact path="/Advanced Search" component={AdvancedSearch} />
         <Route exact path="/MovieList" component={MovieList} />
-        <Route exact path="/Register-Login" component={Login} />
+        <Route exact path="/Login" component={Login} />
+        <Route exact path="/Register" component={Register} />
       </div>
     </Router>
   );
