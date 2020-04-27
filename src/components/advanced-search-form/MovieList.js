@@ -1,7 +1,6 @@
-
 import React, { Component } from "react";
 import NoPoster from "../../images/NoPoster.png";
-
+import "./MovieList.css";
 
 class MovieList extends Component {
   constructor() {
@@ -76,7 +75,7 @@ class MovieList extends Component {
     }
 
     return (
-      <div className="movie-list-container">
+      <div className="container movie-list-container ">
         <h1>Here are your search results </h1>
         {this.state.results.map((movie) => {
 
@@ -86,16 +85,18 @@ class MovieList extends Component {
           }
 
           return (
-            <div className="movie-info" key={movie._id}>
-              <img src={moviePoster} alt="poster" />
-              <p>{movie.Title}</p>
-              <p>Genre: {movie.Genre}</p>
-              <p>Year: {movie.Year}</p>
-              <p>Country:{movie.Country}</p>
-              <p>Runtime: {movie.Runtime}</p>
-              <p>Language: {movie.Language}</p>
-              <p>imdbRating: {movie.imdbRating}</p>
-              <p>imdbVotes: {movie.imdbVotes}</p>
+            <div className="movie-info row text-white" key={movie._id}>
+              <img className="col-md-7 p-0 m-4 rounded border border-white" src={moviePoster} alt="poster" />
+              <div className="col-md-5 m-4">
+                <h4 className="m-0 pb-3">{movie.Title}</h4>
+                <p className="m-0 pb-2"><strong>Genre:</strong> {movie.Genre}</p>
+                <p className="m-0 pb-2"><strong>Year: </strong>{movie.Year}</p>
+                <p className="m-0 pb-2"><strong>Country:</strong>{movie.Country}</p>
+                <p className="m-0 pb-2"><strong>Runtime: </strong>{movie.Runtime}</p>
+                <p className="m-0 pb-2"><strong>Language: </strong>{movie.Language}</p>
+                <p className="m-0 pb-2 text-muted">imdbRating: {movie.imdbRating} <i className="fas fa-star text-warning"></i></p>
+                <p className="m-0 pb-2 text-muted">imdbVotes: {movie.imdbVotes}</p>
+              </div>
             </div>
           );
         })}

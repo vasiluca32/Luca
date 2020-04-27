@@ -23,7 +23,7 @@ class Form extends Component {
 
 
   componentDidMount() {
-    console.log("search-form-mounteed");
+    console.log("search-form-mounted");
   }
 
   handleClickTitle = (title) => {
@@ -90,31 +90,43 @@ class Form extends Component {
 
 
     return (
-      <form className="form-wraper">
-        <div className="main">
-          <p>This is the form for an advanced search</p>
-          <TitleSelector onChange={this.handleClickTitle} />
-          <YearSelector onClick={this.handleClickYear} />
-          <GenresSelector handleGenre={this.handleClickGenre.bind(this)} />
-          <RuntimeSelector onChange={this.handleClickRuntime} />
-          <CountrySelector onChange={this.handleClickCountry} />
-          <LanguageSelector onClick={this.handleClickLanguage} />
-          <Link to={{
-            pathname: "/MovieList",
-            state: {
-              title: this.state.title,
-              year: this.state.year,
-              genre: this.state.genre,
-              minutesMin: this.state.minutesMin,
-              minutesMax: this.state.minutesMax,
-              country: this.state.country,
-              language: this.state.language
-            }
-          }}>
-            <SubmitButton onClick={this.handleSubmit} />
-
-          </Link>
+      <form className="form-wrapper ">
+        {/*<div className="main ">*/}
+        {/*<p>This is the form for an advanced search</p>*/}
+        <TitleSelector onChange={this.handleClickTitle} />
+        <GenresSelector handleGenre={this.handleClickGenre.bind(this)} />
+        <div className="row mt-4 mb-4 ">
+          <div className="col-sm-6 col-lg-3 pb-3  ">
+            <YearSelector onClick={this.handleClickYear} />
+          </div>
+          <div className="col-sm-6 col-lg-3 pb-3 ">
+            <CountrySelector onClick={this.handleClickCountry} />
+          </div>
+          <div className="col-sm-6 col-lg-3 pb-3 ">
+            <LanguageSelector onChange={this.handleClickLanguage} />
+          </div>
+          <div className="col-sm-6 col-lg-3 pb-3 ">
+            <RuntimeSelector onChange={this.handleClickRuntime} />
+          </div>
         </div>
+
+
+        <Link to={{
+          pathname: "/MovieList",
+          state: {
+            title: this.state.title,
+            year: this.state.year,
+            genre: this.state.genre,
+            minutesMin: this.state.minutesMin,
+            minutesMax: this.state.minutesMax,
+            country: this.state.country,
+            language: this.state.language
+          }
+        }}>
+          <SubmitButton onClick={this.handleSubmit} />
+
+        </Link>
+        {/*</div>*/}
       </form>
     );
   }
