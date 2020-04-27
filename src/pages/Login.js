@@ -8,7 +8,7 @@ class Login extends Component {
     return (
       <div>
         <div className="container">
-          <LoginForm />
+          <LoginForm history={this.props.history} />
           <Link className="switch" to="/Register">
             <h5> If you do not have an account, please register first!</h5>
           </Link>
