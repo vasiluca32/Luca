@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "./Navbar.css";
 
-
 class Navbar extends Component {
   LogoutUser() {
     window.localStorage.removeItem("access_token");
@@ -118,7 +117,7 @@ class Navbar extends Component {
 
                   <Link className="dropdown-item" to="/FAMILY">
                     FAMILY
-              </Link>
+                  </Link>
                 </div>
               </li>
               <li className="nav-item ">
@@ -143,13 +142,15 @@ class Navbar extends Component {
                 </Link>
               </li>
             </ul>
-            <li className="nav-item ">{buttonLoginLogout}</li>
+            <span className="nav-item ">{buttonLoginLogout}</span>
             <span class="navbar-text-username">
               <i class="fas fa-user"></i>
               {navbarUsername}
             </span>
             {/* <li className="nav-item ">{navbarUsername}</li> */}
-            <Link to="/NewMovie"><button className="btn btn-outline-light">AddMovie</button></Link>
+            <Link to="/NewMovie">
+              <button className="btn btn-outline-light">AddMovie</button>
+            </Link>
           </div>
         </div>
       </nav>
