@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import {Route} from "react-router-dom";
 import Home from "../pages/Home";
 import Action from "../pages/Action";
 import Comedy from "../pages/Comedy";
@@ -20,6 +20,7 @@ import MovieDetails from "./MovieDetails";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import NewMovie from "../pages/NewMovie";
+import EditForm from "./EditForm/EditForm";
 
 export function Body() {
   return (
@@ -45,6 +46,7 @@ export function Body() {
       <Route exact path="/Login" component={Login} />
       <Route exact path="/Register" component={Register} />
       <Route exact path="/NewMovie" component={NewMovie} />
+      <Route exact path="/EditForm" component={EditForm} />
     </div>
   );
 }
