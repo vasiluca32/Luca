@@ -4,6 +4,7 @@ import "./AllCategories.css";
 import PaginationPage from "./PaginationPage";
 import Star from "../images/star.png";
 import { Link } from "react-router-dom";
+import WarningModal from "../components/utils/WarningModal";
 //import EditForm from "../components/EditForm/EditForm";
 
 class MovieInfo extends Component {
@@ -11,6 +12,7 @@ class MovieInfo extends Component {
     super();
     this.state = {
       results: [],
+      isWarningModalOpen: false,
       pagination: {},
       currentPage: 1,
       postsPerPage: 10,
@@ -126,14 +128,13 @@ class MovieInfo extends Component {
                         EDIT
                       </button>
                     </Link>
-
-                    <button
-                      id="DELETE"
-                      type="button"
-                      className="btn btn-outline-light"
-                    >
-                      DELETE
-                    </button>
+                    <WarningModal
+                      // history={this.props.history}
+                      key={movie._id}
+                      movieId={movie._id}
+                      toggleOpenWarningModal={this.toggleOpenWarningModal}
+                      opened={this.state.isWarningModalOpen}
+                    />
                   </div>
                 ) : (
                   ""
