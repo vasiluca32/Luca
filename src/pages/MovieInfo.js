@@ -3,6 +3,8 @@ import NoPoster from "../images/NoPoster.png";
 import "./AllCategories.css";
 import PaginationPage from "./PaginationPage";
 import Star from "../images/star.png";
+import { Link } from "react-router-dom";
+//import EditForm from "../components/EditForm/EditForm";
 
 class MovieInfo extends Component {
   constructor() {
@@ -38,28 +40,6 @@ class MovieInfo extends Component {
         });
       });
   }
-  DeleteMovie(id) {
-    let url = `https://movies-app-siit.herokuapp.com/movies/${id}`;
-    console.log(url);
-  }
-
-  // if (result.accessToken !== undefined) {
-  //     let requestOptions = {
-  //       method: "DELETE",
-  //       headers: myHeaders,
-  //       body: raw,
-  //     };
-
-  //     fetch(url, requestOptions)
-  //       .then((response) => response.json())
-  //       .then((result) => {
-  //         console.log(result);
-
-  //         }
-  //       })
-  //       .catch((error) => console.log("error", error));
-
-  //   }
 
   render() {
     const numberOfPages = this.state.pagination.numberOfPages;
@@ -86,11 +66,10 @@ class MovieInfo extends Component {
           if (movie.Poster && movie.Poster !== "N/A") {
             moviePoster = movie.Poster;
           }
-
           return (
             <div className="container-fluid" key={movie._id}>
               <div className="row">
-                <div className="col-md-3" className="poster-container">
+                <div className="col-md-3 poster-container">
                   <img src={moviePoster} className="card-image" alt="poster" />
                 </div>
 
@@ -127,76 +106,38 @@ class MovieInfo extends Component {
                     esse cillum dolore eu fugiat nulla pariatur.
                   </p>
                 </div>
-                <div className="col-md-2" id="buttons">
-                  <button
-                    id="EDIT"
-                    type="button"
-                    className="btn btn-outline-light"
-                  >
-                    EDIT
-                  </button>
 
-                  <button
-                    type="button"
-                    id="DELETE"
-                    class="btn btn-outline-light"
-                    data-toggle="modal"
-                    data-target="#deleteModal"
-                  >
-                    DELETE
-                  </button>
+                {localStorage.getItem("access_token") ? (
+                  <div className="col-md-2" id="buttons">
+                    <Link
+                      //className="text-decoration-none "
+                      to={{
+                        pathname: "/EditForm",
+                        state: {
+                          movie: movie,
+                        },
+                      }}
+                    >
+                      <button
+                        id="EDIT"
+                        type="button"
+                        className="btn btn-outline-light"
+                      >
+                        EDIT
+                      </button>
+                    </Link>
 
-                  <div
-                    class="modal fade text-dark"
-                    id="deleteModal"
-                    tabindex="-1"
-                    role="dialog"
-                    aria-labelledby="deleteModalLabel"
-                    aria-hidden="true"
-                  >
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title " id="deleteModalLabel">
-                            Warning
-                          </h5>
-                          <button
-                            type="button"
-                            class="close"
-                            data-dismiss="modal"
-                            aria-label="Close"
-                          >
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <p>
-                            {" "}
-                            Do you really want to delete the movie ${
-                              movie._id
-                            }?{" "}
-                          </p>
-                        </div>
-                        <div class="modal-footer">
-                          <button
-                            type="button"
-                            class="btn btn-secondary"
-                            data-dismiss="modal"
-                          >
-                            No
-                          </button>
-                          <button
-                            type="button"
-                            class="btn btn-primary"
-                            onClick={() => this.DeleteMovie(movie._id)}
-                          >
-                            Yes
-                          </button>
-                        </div>
-                      </div>
-                    </div>
+                    <button
+                      id="DELETE"
+                      type="button"
+                      className="btn btn-outline-light"
+                    >
+                      DELETE
+                    </button>
                   </div>
-                </div>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
           );
