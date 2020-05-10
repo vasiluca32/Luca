@@ -5,8 +5,8 @@ import Logo from "../images/Logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "./Navbar.css";
-
 import {withRouter} from 'react-router-dom';
+
 
 class Navbar extends Component {
   state = {
@@ -141,8 +141,8 @@ class Navbar extends Component {
                     FANTASY
                   </Link>
 
-                 <Link className="dropdown-item" to="/FAMILY">
-                 FAMILY
+                  <Link className="dropdown-item" to="/FAMILY">
+                    FAMILY
               </Link>
                 </div>
               </li>
@@ -175,6 +175,8 @@ class Navbar extends Component {
               <i class="fas fa-user"></i>
               {navbarUsername}
             </span>
+            {/* <li className="nav-item ">{navbarUsername}</li> */}
+            <Link to="/NewMovie"><button className="btn btn-outline-light">AddMovie</button></Link>
           </div>
         </div>
       </nav>

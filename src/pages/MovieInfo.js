@@ -3,6 +3,8 @@ import NoPoster from "../images/NoPoster.png";
 import "./AllCategories.css";
 import PaginationPage from "./PaginationPage";
 import Star from "../images/star.png";
+import {Link} from "react-router-dom";
+//import EditForm from "../components/EditForm/EditForm";
 
 class MovieInfo extends Component {
   constructor() {
@@ -58,9 +60,7 @@ class MovieInfo extends Component {
   render() {
     const numberOfPages = this.state.pagination.numberOfPages;
     const activePage = this.state.pagination.currentPage;
-
-    const paginationAction = (pageNumber) => this.fetchMovies(pageNumber); 
-
+    const paginationAction = (pageNumber) => this.fetchMvies(pageNumber);
     const prevPage = () => {
       if (activePage > 1) {
         this.fetchMovies(activePage - 1);
@@ -80,14 +80,12 @@ class MovieInfo extends Component {
           if (movie.Poster && movie.Poster !== "N/A") {
             moviePoster = movie.Poster;
           }
-
           return (
             <div className="container-fluid" key={movie._id}>
               <div className="row">
                 <div className="col-md-3" className="poster-container">
                   <img src={moviePoster} className="card-image" alt="poster" />
                 </div>
-
                 <div className="col-md-3" id="card-body-movie-list">
                   <div className="movie-details">
                     <h5 className="card-title">{movie.Title}</h5>
@@ -121,22 +119,27 @@ class MovieInfo extends Component {
                     esse cillum dolore eu fugiat nulla pariatur.
                   </p>
                 </div>
+                { localStorage.getItem('access_token') ? (
                 <div className="col-md-2" id="buttons">
-                  <button
-                    id="EDIT"
-                    type="button"
-                    className="btn btn-outline-light"
-                  >
-                    EDIT
-                  </button>
-                  <button
-                    id="DELETE"
-                    type="button"
-                    className="btn btn-outline-light"
-                  >
+                  <Link
+                    //className="text-decoration-none "
+                    to={{
+                      pathname: "/EditForm",
+                      state:{
+                        movie:movie,
+                      },
+
+                    }}>
+                    <button id="EDIT" type="button" className="btn btn-outline-light" >
+                      EDIT
+                    </button>
+                  </Link>
+
+                  <button id="DELETE" type="button" className="btn btn-outline-light">
                     DELETE
                   </button>
                 </div>
+                ) : "" }
               </div>
             </div>
           );
@@ -152,5 +155,4 @@ class MovieInfo extends Component {
     );
   }
 }
-
 export default MovieInfo;
