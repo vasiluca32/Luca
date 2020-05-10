@@ -19,6 +19,7 @@ import MovieList from "./advanced-search-form/MovieList";
 import MovieDetails from "./MovieDetails";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import SearchByTitleNavbar from "../pages/SearchByTitleNavbar";
 
 export function Body() {
   return (
@@ -43,6 +44,7 @@ export function Body() {
       <Route exact path="/MovieDetails" component={MovieDetails} />
       <Route exact path="/Login" component={Login} />
       <Route exact path="/Register" component={Register} />
+      <Route exact path="/SearchByTitleNavbar" component={SearchByTitleNavbar}/>
     </div>
   );
 }
