@@ -62,7 +62,7 @@ class MovieInfo extends Component {
   render() {
     const numberOfPages = this.state.pagination.numberOfPages;
     const activePage = this.state.pagination.currentPage;
-    const paginationAction = (pageNumber) => this.fetchMvies(pageNumber);
+    const paginationAction = (pageNumber) => this.fetchMovies(pageNumber);
     const prevPage = () => {
       if (activePage > 1) {
         this.fetchMovies(activePage - 1);
@@ -152,7 +152,8 @@ class MovieInfo extends Component {
                 ) : (
                   ""
                 )}
-              </div>
+                </div>
+                </div>
             </div>
           );
         })}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import MovieInfo from "./MovieInfo";
+import "./AllCategories.css";
 
 class SearchByTitleNavbar extends Component {
   constructor() {
@@ -11,7 +12,7 @@ class SearchByTitleNavbar extends Component {
 
     return (
       <div>
-        <p>Search results for title: {title}</p>
+        <p className="searchByTitleNavbar">Search results for title: {title}</p>
         <MovieInfo title={title}/>
       </div>
     );
