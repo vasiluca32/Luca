@@ -1,5 +1,5 @@
 import React from "react";
-import {Route} from "react-router-dom";
+import { Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Action from "../pages/Action";
 import Comedy from "../pages/Comedy";
@@ -22,6 +22,8 @@ import Register from "../pages/Register";
 import SearchByTitleNavbar from "../pages/SearchByTitleNavbar";
 import NewMovie from "../pages/NewMovie";
 import EditForm from "./EditForm/EditForm";
+import About from "../pages/About";
+import Help from "../pages/Help";
 
 
 export function Body() {
@@ -50,6 +52,8 @@ export function Body() {
       <Route exact path="/SearchByTitleNavbar" component={SearchByTitleNavbar}/>
       <Route exact path="/NewMovie" component={NewMovie} />
       <Route exact path="/EditForm" component={EditForm} />
+      <Route exact path="/About" component={About} />
+      <Route exact path="/Help" component={Help} />
     </div>
   );
 }
