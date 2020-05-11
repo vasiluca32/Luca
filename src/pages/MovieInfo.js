@@ -3,7 +3,8 @@ import NoPoster from "../images/NoPoster.png";
 import "./AllCategories.css";
 import PaginationPage from "./PaginationPage";
 import Star from "../images/star.png";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import WarningModal from "../components/utils/WarningModal";
 //import EditForm from "../components/EditForm/EditForm";
 
 class MovieInfo extends Component {
@@ -11,9 +12,10 @@ class MovieInfo extends Component {
     super();
     this.state = {
       results: [],
+      isWarningModalOpen: false,
       pagination: {},
       currentPage: 1,
-      postsPerPage: 10
+      postsPerPage: 10,
     };
   }
 
@@ -83,6 +85,7 @@ class MovieInfo extends Component {
           return (
             <div className="container-fluid" key={movie._id}>
               <div className="row">
+                <div className="col-md-3 poster-container">
                 <div className="col-md-3" className="poster-container">
                   <img src={moviePoster} className="card-image" alt="poster" />
                 </div>
@@ -119,27 +122,36 @@ class MovieInfo extends Component {
                     esse cillum dolore eu fugiat nulla pariatur.
                   </p>
                 </div>
-                { localStorage.getItem('access_token') ? (
-                <div className="col-md-2" id="buttons">
-                  <Link
-                    //className="text-decoration-none "
-                    to={{
-                      pathname: "/EditForm",
-                      state:{
-                        movie:movie,
-                      },
-
-                    }}>
-                    <button id="EDIT" type="button" className="btn btn-outline-light" >
-                      EDIT
-                    </button>
-                  </Link>
-
-                  <button id="DELETE" type="button" className="btn btn-outline-light">
-                    DELETE
-                  </button>
-                </div>
-                ) : "" }
+                {localStorage.getItem("access_token") ? (
+                  <div className="col-md-2" id="buttons">
+                    <Link
+                      //className="text-decoration-none "
+                      to={{
+                        pathname: "/EditForm",
+                        state: {
+                          movie: movie,
+                        },
+                      }}
+                    >
+                      <button
+                        id="EDIT"
+                        type="button"
+                        className="btn btn-outline-light"
+                      >
+                        EDIT
+                      </button>
+                    </Link>
+                    <WarningModal
+                      // history={this.props.history}
+                      key={movie._id}
+                      movieId={movie._id}
+                      toggleOpenWarningModal={this.toggleOpenWarningModal}
+                      opened={this.state.isWarningModalOpen}
+                    />
+                  </div>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
           );
@@ -155,4 +167,5 @@ class MovieInfo extends Component {
     );
   }
 }
+
 export default MovieInfo;
