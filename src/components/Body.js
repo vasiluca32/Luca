@@ -19,8 +19,10 @@ import MovieList from "./advanced-search-form/MovieList";
 import MovieDetails from "./MovieDetails";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import SearchByTitleNavbar from "../pages/SearchByTitleNavbar";
 import NewMovie from "../pages/NewMovie";
 import EditForm from "./EditForm/EditForm";
+
 
 export function Body() {
   return (
@@ -45,6 +47,7 @@ export function Body() {
       <Route exact path="/MovieDetails" component={MovieDetails} />
       <Route exact path="/Login" component={Login} />
       <Route exact path="/Register" component={Register} />
+      <Route exact path="/SearchByTitleNavbar" component={SearchByTitleNavbar}/>
       <Route exact path="/NewMovie" component={NewMovie} />
       <Route exact path="/EditForm" component={EditForm} />
     </div>

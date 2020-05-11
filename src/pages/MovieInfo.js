@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import NoPoster from '../images/NoPoster.png';
+import React, { Component } from "react";
+import NoPoster from "../images/NoPoster.png";
 import "./AllCategories.css";
 import PaginationPage from "./PaginationPage";
 import Star from "../images/star.png";
@@ -21,20 +21,38 @@ class MovieInfo extends Component {
     this.fetchMovies(this.state.currentPage);
   }
 
+  componentDidUpdate(x) {
+    if (this.props.title && this.props.title !== this.state.currentTitle) {
+      this.fetchMovies(this.state.currentPage);
+    }
+  }
+
   fetchMovies(pageNumber) {
     const moviesPerPage = this.state.postsPerPage;
     const genre = this.props.genre;
+    const title = this.props.title;
 
     const skip = (pageNumber - 1) * moviesPerPage;
 
-    fetch(`https://movies-app-siit.herokuapp.com/movies?&Genre=${genre}&take=${moviesPerPage}&skip=${skip}`)
-      .then(Response => {
+    let url = "https://movies-app-siit.herokuapp.com/movies?";
+
+    if (this.props.genre) {
+      url = url + "Genre=" + genre;
+    } else if (this.props.title) {
+      url = url + "Title=" + title;
+      this.setState({ currentTitle: title });
+    }
+
+    url = url + "&take=" + moviesPerPage + "&skip=" + skip;
+
+    fetch(url)
+      .then((Response) => {
         return Response.json();
       })
-      .then(movies => {
+      .then((movies) => {
         this.setState({
           results: movies.results,
-          pagination: movies.pagination
+          pagination: movies.pagination,
         });
       });
   }
@@ -42,9 +60,7 @@ class MovieInfo extends Component {
   render() {
     const numberOfPages = this.state.pagination.numberOfPages;
     const activePage = this.state.pagination.currentPage;
-
-    const paginationAction = pageNumber => this.fetchMovies(pageNumber);//face update la pagina facand fetch-ul corespunzator pentru pagina respectiva
-
+    const paginationAction = (pageNumber) => this.fetchMvies(pageNumber);
     const prevPage = () => {
       if (activePage > 1) {
         this.fetchMovies(activePage - 1);
@@ -67,17 +83,17 @@ class MovieInfo extends Component {
           return (
             <div className="container-fluid" key={movie._id}>
               <div className="row">
-                <div className="col-md-3 poster-container">
-                  <img src={moviePoster} className="card-image" alt="poster"/>
+                <div className="col-md-3" className="poster-container">
+                  <img src={moviePoster} className="card-image" alt="poster" />
                 </div>
-
                 <div className="col-md-3" id="card-body-movie-list">
                   <div className="movie-details">
                     <h5 className="card-title">{movie.Title}</h5>
                     <p className="card-text">Genre: {movie.Genre}</p>
                     <p id="rating" className="card-text">
                       imdbRating: {movie.imdbRating}
-                      <img src={Star} className="rating-img" alt="rating"/></p>
+                      <img src={Star} className="rating-img" alt="rating" />
+                    </p>
                     <p className="card-text">Runtime: {movie.Runtime}</p>
                     <p className="card-text">Language: {movie.Language}</p>
                     <p className="card-text">
@@ -103,7 +119,6 @@ class MovieInfo extends Component {
                     esse cillum dolore eu fugiat nulla pariatur.
                   </p>
                 </div>
-
                 { localStorage.getItem('access_token') ? (
                 <div className="col-md-2" id="buttons">
                   <Link
@@ -129,12 +144,15 @@ class MovieInfo extends Component {
             </div>
           );
         })}
-        <PaginationPage numberOfPages={numberOfPages} activePage={activePage} paginationAction={paginationAction}
-                        prevPage={prevPage} nextPage={nextPage}/>
+        <PaginationPage
+          numberOfPages={numberOfPages}
+          activePage={activePage}
+          paginationAction={paginationAction}
+          prevPage={prevPage}
+          nextPage={nextPage}
+        />
       </div>
     );
   }
 }
-
-
 export default MovieInfo;

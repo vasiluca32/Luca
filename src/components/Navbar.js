@@ -5,13 +5,38 @@ import Logo from "../images/Logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "./Navbar.css";
+import {withRouter} from 'react-router-dom';
 
 
 class Navbar extends Component {
+  state = {
+    title: ""
+  }
+
   LogoutUser() {
     window.localStorage.removeItem("access_token");
     window.localStorage.removeItem("username");
     // window.location.reload();
+  }
+
+
+  searchMovies = (event) => {
+    
+    if (event.key === 'Enter') {
+      this.props.history.push(
+        {
+          pathname: '/SearchByTitleNavbar',
+          title: this.state.title
+        }
+        );
+        this.setState({title: ""});
+    }
+  }
+
+
+  titleInput = (event) => {
+    this.setState({title : event.target.value});
+    event.preventDefault();
   }
 
   render() {
@@ -133,14 +158,16 @@ class Navbar extends Component {
               </li>
 
               <li className="nav-item ">
-                <Link className="nav-link" to="/Search">
+               
                   <input
                     className="form-control mr-sm-2"
                     type="text"
+                    value={this.state.title}
                     placeholder="Search"
                     aria-label="Search"
-                  />
-                </Link>
+                    onChange={this.titleInput}
+                    onKeyDown={this.searchMovies}
+                  />              
               </li>
             </ul>
             <li className="nav-item ">{buttonLoginLogout}</li>
@@ -157,4 +184,4 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+export default withRouter(Navbar);
