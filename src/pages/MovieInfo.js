@@ -23,7 +23,7 @@ class MovieInfo extends Component {
     this.fetchMovies(this.state.currentPage);
   }
 
-  componentDidUpdate(x) {
+  componentDidUpdate() {
     if (this.props.title && this.props.title !== this.state.currentTitle) {
       this.fetchMovies(this.state.currentPage);
     }
