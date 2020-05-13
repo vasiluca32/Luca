@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Form.css";
+import { handleImputs } from "./New-movie utils";
 
 class NewMovieForm extends Component {
     constructor(props) {
@@ -57,9 +58,12 @@ class NewMovieForm extends Component {
     }
     handleChangeType = (event) => {
         this.setState({ Type: event.target.value });
+
     }
 
     addNewMovie() {
+        handleImputs();
+
         let token = localStorage.getItem("access_token");
         const url = "https://movies-app-siit.herokuapp.com/movies"
         const data = this.state;
@@ -71,7 +75,10 @@ class NewMovieForm extends Component {
             },
             body: JSON.stringify(data),
         })
-            .then(response => response.json())
+            .then(response => {
+                console.log(response)
+                return response.json()
+            })
             .then(data => {
                 console.log('Success:', data);
             })
@@ -87,65 +94,67 @@ class NewMovieForm extends Component {
 
     render() {
         return (
-            <div className="wrap">
-                <p>Add Movie Form</p>
+            <div className="continer">
+                <form className="container bg-light p-5 h-auto">
+                    <p>Add Movie Form</p>
+                    <div className="form-row">
+                        <label className="col-sm-4">
+                            <p>Title</p>
+                            <input className="form-control" type="text" id="title" onChange={this.handleChangeTitle}></input>
+                        </label>
+                        <label className="col-sm-4">
+                            <p>Year</p>
+                            <input className="form-control" type="number" id="year" onChange={this.handleChangeYear}></input>
+                        </label>
+                        <label className="col-sm-4">
+                            <p>Runtime</p>
+                            <input className="form-control" type="number" id="runtime" onChange={this.handleChangeRuntime}></input>
+                        </label>
+                    </div>
+                    <div className="form-row">
+                        <label className="col-sm-4">
+                            <p>Genre</p>
+                            <input className="form-control" type="text" id="genre" onChange={this.handleChangeGenre}></input>
+                        </label>
+                        <label className="col-sm-4">
+                            <p>Language</p>
+                            <input className="form-control" type="text" id="language" onChange={this.handleChangeLanguage}></input>
+                        </label>
+                        <label className="col-sm-4">
+                            <p>Country</p>
+                            <input className="form-control" type="text" id="country" onChange={this.handleChangeCountry}></input>
+                        </label>
+                    </div>
+                    <div className="form-row">
+                        <label className="col-sm-4">
+                            <p>Poster</p>
+                            <input className="form-control" type="text" id="poster" onChange={this.handleChangePoster}></input>
+                        </label>
+                        <label className="col-sm-4">
+                            <p>IMDB Rating</p>
+                            <input className="form-control" type="number" id="rating" step="any" onChange={this.handleChangeRating}></input>
+                        </label>
+                        <label className="col-sm-4">
+                            <p>IMDB Votes</p>
+                            <input className="form-control" type="number" id="votes" onChange={this.handleChangeVotes}></input>
+                        </label>
+                    </div>
 
-                <form>
-                    <label>
-                        <p>Title</p>
-                        <input type="text" id="title" onChange={this.handleChangeTitle}></input>
-                    </label>
-                    <label>
-                        <p>Year</p>
-                        <input type="number" id="year" onChange={this.handleChangeYear}></input>
-                    </label>
-                    <label>
-                        <p>Runtime</p>
-                        <input type="number" onChange={this.handleChangeRuntime}></input>
-                    </label>
-                    <label>
-                        <p>Genre</p>
-                        <input type="text" onChange={this.handleChangeGenre}></input>
-                    </label>
-                    <label>
-                        <p>Language</p>
-                        <input type="text" onChange={this.handleChangeLanguage}></input>
-                    </label>
-                    <label>
-                        <p>Country</p>
-                        <input type="text" onChange={this.handleChangeCountry}></input>
-                    </label>
-                    <label>
-                        <p>Poster</p>
-                        <input type="text" onChange={this.handleChangePoster}></input>
-                    </label>
-                    <label>
-                        <p>IMDB Rating</p>
-                        <input type="number" step="any" onChange={this.handleChangeRating}></input>
-                    </label>
-                    <label>
-                        <p>IMDB Votes</p>
-                        <input type="number" onChange={this.handleChangeVotes}></input>
-                    </label>
-                    <label>
-                        <p>IMDB ID</p>
-                        <input type="text" onChange={this.handleChangeImdbId}></input>
-                    </label>
-                    <label>
-                        <p>Type</p>
-                        <input type="text" onChange={this.handleChangeType}></input>
-                    </label>
-                    <br></br>
-                    <label>
-                        <button type="button" onClick={() => { this.addNewMovie() }}>Submit</button>
+                    <div className="form-row">
+                        <label className="col-sm-4">
+                            <p>IMDB ID</p>
+                            <input className="form-control" type="text" id="imdbID" onChange={this.handleChangeImdbId}></input>
+                        </label>
+                        <label className="col-sm-4">
+                            <p>Type</p>
+                            <input className="form-control" type="text" id="type" onChange={this.handleChangeType}></input>
+                        </label>
+                    </div>
+                    <label className="col-sm-4">
+                        <button className="btn btn-secondary mr-5" type="button" onClick={() => { this.addNewMovie() }}>Submit</button>
                     </label>
 
                 </form>
-
-
-
-
-
 
 
             </div>
