@@ -85,12 +85,12 @@ class MovieInfo extends Component {
           return (
             <div className="container-fluid" key={movie._id}>
               <div className="row">
-                <div className="col-md-3 poster-container">
+                {/* <div className="col-md-3 poster-container"> */}
                 <div className="col-md-3" className="poster-container">
                   <img src={moviePoster} className="card-image" alt="poster" />
                 </div>
-                <div className="col-md-3" id="card-body-movie-list">
-                  <div className="movie-details">
+                {/* <div className="col-md-3" id="card-body-movie-list"> */}
+                  <div className="col-md-3 movie-details">
                     <h5 className="card-title">{movie.Title}</h5>
                     <p className="card-text">Genre: {movie.Genre}</p>
                     <p id="rating" className="card-text">
@@ -109,7 +109,7 @@ class MovieInfo extends Component {
                       <small className="text-muted">Year: {movie.Year}</small>
                     </p>
                   </div>
-                </div>
+                {/* </div> */}
                 <div className="col-md-4" id="movie-info">
                   <h6 className="card-title"> MOVIE INFO </h6>
                   <p className="card-text">
@@ -154,7 +154,7 @@ class MovieInfo extends Component {
                 )}
                 </div>
                 </div>
-            </div>
+            // </div>
           );
         })}
         <PaginationPage
