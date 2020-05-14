@@ -36,28 +36,28 @@ class NewMovieForm extends Component {
     this.setState({ Runtime: event.target.value, submitted: false });
   };
   handleChangeGenre = (event) => {
-    this.setState({ Genre: event.target.value });
+    this.setState({ Genre: event.target.value, submitted: false });
   };
   handleChangeLanguage = (event) => {
-    this.setState({ Language: event.target.value });
+    this.setState({ Language: event.target.value, submitted: false });
   };
   handleChangeCountry = (event) => {
-    this.setState({ Country: event.target.value });
+    this.setState({ Country: event.target.value, submitted: false });
   };
   handleChangePoster = (event) => {
-    this.setState({ Poster: event.target.value });
+    this.setState({ Poster: event.target.value, submitted: false });
   };
   handleChangeRating = (event) => {
-    this.setState({ imdbRating: event.target.value });
+    this.setState({ imdbRating: event.target.value, submitted: false });
   };
   handleChangeVotes = (event) => {
-    this.setState({ imdbVotes: event.target.value });
+    this.setState({ imdbVotes: event.target.value, submitted: false });
   };
   handleChangeImdbId = (event) => {
-    this.setState({ imdbID: event.target.value });
+    this.setState({ imdbID: event.target.value, submitted: false });
   };
   handleChangeType = (event) => {
-    this.setState({ Type: event.target.value });
+    this.setState({ Type: event.target.value, submitted: false });
   };
 
   setSubmitted() {
@@ -75,6 +75,14 @@ class NewMovieForm extends Component {
         Title: this.state.Title,
         Year: this.state.Year,
         Runtime: this.state.Runtime + " min",
+        Genre: this.state.Genre,
+        Language: this.state.Language,
+        Country: this.state.Country,
+        Poster: this.state.Poster,
+        imdbRating: this.state.imdbRating,
+        imdbVotes: Number(this.state.imdbVotes).toLocaleString("en-US"),
+        imdbID: this.state.imdbID,
+        Type: this.state.Type
       };
       fetch(url, {
         method: "POST",
@@ -86,6 +94,13 @@ class NewMovieForm extends Component {
       })
         .then((response) => {
           console.log(response);
+
+          if (response.status === 200) {
+            alert("Your movie have been successfully added to the database!")
+          }
+          else {
+            alert("Something went wrong :(. Please try again!")
+          }
           return response.json();
         })
         .then((data) => {
@@ -102,7 +117,10 @@ class NewMovieForm extends Component {
   }
 
   render() {
-    const { Title, Year, Runtime, submitted } = this.state;
+    const { Title, Year, Runtime, Genre, Language, Country, Poster, imdbRating, imdbVotes, imdbID, Type, submitted } = this.state;
+    // const Genres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Drama",
+    //   "Family", "Fantasy", "Horror", "Mistery", "Romance", "SCI-FI", "Superhero",
+    //   "Thriller"];
 
     return (
       <div className="continer">
@@ -169,6 +187,14 @@ class NewMovieForm extends Component {
                 type="text"
                 id="genre"
                 onChange={this.handleChangeGenre}
+                value={Genre}
+                style={{
+                  borderColor: submitted
+                    ? Genre
+                      ? "#ced4da"
+                      : "red"
+                    : "#ced4da",
+                }}
               ></input>
             </label>
             <label className="col-sm-4">
@@ -178,6 +204,14 @@ class NewMovieForm extends Component {
                 type="text"
                 id="language"
                 onChange={this.handleChangeLanguage}
+                value={Language}
+                style={{
+                  borderColor: submitted
+                    ? Language
+                      ? "#ced4da"
+                      : "red"
+                    : "#ced4da",
+                }}
               ></input>
             </label>
             <label className="col-sm-4">
@@ -187,6 +221,14 @@ class NewMovieForm extends Component {
                 type="text"
                 id="country"
                 onChange={this.handleChangeCountry}
+                value={Country}
+                style={{
+                  borderColor: submitted
+                    ? Country
+                      ? "#ced4da"
+                      : "red"
+                    : "#ced4da",
+                }}
               ></input>
             </label>
           </div>
@@ -198,6 +240,14 @@ class NewMovieForm extends Component {
                 type="text"
                 id="poster"
                 onChange={this.handleChangePoster}
+                value={Poster}
+                style={{
+                  borderColor: submitted
+                    ? Poster
+                      ? "#ced4da"
+                      : "red"
+                    : "#ced4da",
+                }}
               ></input>
             </label>
             <label className="col-sm-4">
@@ -208,6 +258,14 @@ class NewMovieForm extends Component {
                 id="rating"
                 step="any"
                 onChange={this.handleChangeRating}
+                value={imdbRating}
+                style={{
+                  borderColor: submitted
+                    ? Number(imdbRating) <= 10 && Number(imdbRating) > 0
+                      ? "#ced4da"
+                      : "red"
+                    : "#ced4da",
+                }}
               ></input>
             </label>
             <label className="col-sm-4">
@@ -217,6 +275,14 @@ class NewMovieForm extends Component {
                 type="number"
                 id="votes"
                 onChange={this.handleChangeVotes}
+                value={imdbVotes}
+                style={{
+                  borderColor: submitted
+                    ? imdbVotes
+                      ? "#ced4da"
+                      : "red"
+                    : "#ced4da",
+                }}
               ></input>
             </label>
           </div>
@@ -229,6 +295,14 @@ class NewMovieForm extends Component {
                 type="text"
                 id="imdbID"
                 onChange={this.handleChangeImdbId}
+                value={imdbID}
+                style={{
+                  borderColor: submitted
+                    ? imdbID
+                      ? "#ced4da"
+                      : "red"
+                    : "#ced4da",
+                }}
               ></input>
             </label>
             <label className="col-sm-4">
@@ -238,6 +312,14 @@ class NewMovieForm extends Component {
                 type="text"
                 id="type"
                 onChange={this.handleChangeType}
+                value={Type}
+                style={{
+                  borderColor: submitted
+                    ? Type
+                      ? "#ced4da"
+                      : "red"
+                    : "#ced4da",
+                }}
               ></input>
             </label>
           </div>

@@ -46,18 +46,19 @@
 } 
 /* caroussel-container tine tot ce e in interior adica filmele */
 .caroussel{
-    position: absolute;
+    /* position: absolute; */
     /* display: inline-block; */
-    min-width: 1280px;
-    overflow: hidden;
-
+    /* min-width: 1280px; */
+    overflow-y: hidden;
+    overflow-x:scroll;
+    white-space: nowrap;
 }
 
 .element{
     background-color: #343a40;
     padding:30px;
     flex:1;
-    float: right;
+    display:inline-block;
 } 
 
 

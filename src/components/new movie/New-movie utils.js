@@ -44,8 +44,12 @@ export function handleImputs() {
   return false;
 }
 
-export function shouldAddMovie({ Title, Year, Runtime }) {
-  if (Title && Year && Runtime) return true;
+export function shouldAddMovie({ Title, Year, Runtime, Genre, Language, Country, Poster, imdbRating, imdbVotes, imdbID, Type }) {
+  if (Title && Year && Runtime && Genre && Language && Country && Poster && imdbRating && Number(imdbRating) > 0 && Number(imdbRating) <= 10 && imdbVotes && imdbID && Type) return true;
+  // if (Number(imdbRating) > 0 && Number(imdbRating) <= 10) return true;
+  else {
+    alert("Please check all highlighted fields!")
+    return false;
+  }
 
-  return false;
 }
