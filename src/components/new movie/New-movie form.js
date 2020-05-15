@@ -9,7 +9,7 @@ class NewMovieForm extends Component {
       Title: "",
       Year: "",
       Runtime: "",
-      Genre: "",
+      Genre: null,
       Language: "",
       Country: "",
       Poster: "",
@@ -21,9 +21,6 @@ class NewMovieForm extends Component {
     };
   }
   componentDidMount() {
-    let token = localStorage.getItem("access_token");
-    console.log(token);
-    console.log(this.state);
   }
 
   handleChangeTitle = (event) => {
@@ -36,8 +33,8 @@ class NewMovieForm extends Component {
     this.setState({ Runtime: event.target.value, submitted: false });
   };
   handleChangeGenre = (event) => {
-    this.setState({ Genre: event.target.value, submitted: false });
-  };
+    this.setState({ Genre: event.target.value, submitted: false })
+  }
   handleChangeLanguage = (event) => {
     this.setState({ Language: event.target.value, submitted: false });
   };
@@ -63,6 +60,22 @@ class NewMovieForm extends Component {
   setSubmitted() {
     this.setState({ submitted: true });
   }
+  handleImputs() {
+    this.setState({
+      Title: "",
+      Year: "",
+      Runtime: "",
+      Genre: null,
+      Language: "",
+      Country: "",
+      Poster: "",
+      imdbRating: "",
+      imdbVotes: "",
+      imdbID: "",
+      Type: "",
+      submitted: false,
+    })
+  }
 
   addNewMovie() {
     this.setSubmitted();
@@ -70,6 +83,7 @@ class NewMovieForm extends Component {
 
     if (shouldUpdate) {
       let token = localStorage.getItem("access_token");
+      console.log(token)
       const url = "https://movies-app-siit.herokuapp.com/movies";
       const data = {
         Title: this.state.Title,
@@ -93,8 +107,6 @@ class NewMovieForm extends Component {
         body: JSON.stringify(data),
       })
         .then((response) => {
-          console.log(response);
-
           if (response.status === 200) {
             alert("Your movie have been successfully added to the database!")
           }
@@ -109,18 +121,15 @@ class NewMovieForm extends Component {
         .catch((error) => {
           console.error("Error:", error);
         });
-
-      console.log(data);
-
-      console.log(JSON.stringify(data));
+      this.handleImputs()
     }
   }
 
   render() {
     const { Title, Year, Runtime, Genre, Language, Country, Poster, imdbRating, imdbVotes, imdbID, Type, submitted } = this.state;
-    // const Genres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Drama",
-    //   "Family", "Fantasy", "Horror", "Mistery", "Romance", "SCI-FI", "Superhero",
-    //   "Thriller"];
+    const Genres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Drama",
+      "Family", "Fantasy", "Horror", "Mistery", "Romance", "SCI-FI", "Superhero",
+      "Thriller"];
 
     return (
       <div className="continer">
@@ -182,12 +191,8 @@ class NewMovieForm extends Component {
           <div className="form-row">
             <label className="col-sm-4">
               <p>Genre</p>
-              <input
-                className="form-control"
-                type="text"
+              <select type="text"
                 id="genre"
-                onChange={this.handleChangeGenre}
-                value={Genre}
                 style={{
                   borderColor: submitted
                     ? Genre
@@ -195,7 +200,18 @@ class NewMovieForm extends Component {
                       : "red"
                     : "#ced4da",
                 }}
-              ></input>
+                selected="selected" className="form-control" onChange={(event) => this.handleChangeGenre(event)}
+              >
+                {Genres.map((genre, index) => (
+                  <option
+                    key={index}
+                    value={genre}
+                  >
+                    {genre}
+                  </option>
+                ))}
+                <option hidden disabled selected value>Select an option</option>
+              </select>
             </label>
             <label className="col-sm-4">
               <p>Language</p>
