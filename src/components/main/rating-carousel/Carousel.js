@@ -51,7 +51,9 @@ class Carousel extends Component {
                     </div>
                     {this.state.results.sort(function (a, b) { return b.imdbRating - a.imdbRating }).slice(currentMovieIndex, currentMovieIndex + 6).map((res) => {
                         let moviePoster = NoPoster;
-                        if (res.Poster && res.Poster !== "N/A") {
+                        let checkJpg = res.Poster.includes("jpg")
+                        let checkImg = res.Poster.includes("image")
+                        if (res.Poster !== "N/A" && (checkJpg || checkImg)) {
                             moviePoster = res.Poster;
                         }
                         return (

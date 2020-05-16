@@ -46,7 +46,6 @@
     justify-content: center;
 }
 .caroussel{
-    display: flex;
     overflow-y: hidden;
     overflow-x: hidden;
     overflow-x:scroll;
@@ -58,9 +57,9 @@
 .element{
     background-color: #343a40;
     padding:15px;
-    flex:1;
-    display:block;
+    display:inline-table;
     width:189px;
+    
 } 
 
 
@@ -72,14 +71,14 @@
     
 }
 .element-body{
-    height:130px;
+    height:150px;
     position: relative;
     background-color:rgb(27, 27, 27);
-    overflow-wrap: break-word;
 }
 .rating{
     display: flex;
-    padding-top: 3px;
+    padding-top: 8px;
+    align-items: baseline;
 }
 .star{
     color: gold;
@@ -87,18 +86,21 @@
 
 }
 .rating p{
-    font-size: medium;
+    font-size: large;
     color: white;
     margin-left: 5px;
     padding-top: 5px;
 }
 
 .element-title{
+    width: 150px;
     color:white;
     padding-right: 5px;
 }
 .element-title h5{
-    font-size: small;
+    font-size: large;
+    white-space: normal;
+    margin-left: 9px;
    
 }
 h5:hover{
@@ -114,21 +116,21 @@ h5:hover{
         justify-content: center;
     }
     .caroussel{
-        display: block;
+        display: inline-block;
         overflow-y: hidden;
         overflow-x: hidden;
         overflow-x:scroll;
-        white-space: nowrap;
         position: relative;
+        
     }
     
     .element{
-        background-color: #343a40;
-        padding:15px;
-        flex:1;
-        display:inline-block;
-        width:189px;
-    }    
+    background-color: #343a40;
+    padding:15px;
+    display:inline-grid;
+    width:189px;
+    
+} 
 
     .arrow-left {
         display: block;
@@ -146,6 +148,11 @@ h5:hover{
         right: 0;
         top: 130px;
     }
+    .element-title h5{
+        font-size: smaller;
+        
+       
+    }
 }
 
 @media only screen and (max-width: 1068px) {
@@ -155,7 +162,7 @@ h5:hover{
         background-color: #343a40;
         padding:10px;
         flex:1;
-        display:inline-block;
+        display:inline-table;
         width:150px;
     }    
 
@@ -181,9 +188,15 @@ h5:hover{
         background-color: #343a40;
         padding:10px;
         flex:1;
-        display:inline-block;
+        display:inline-table;
         width:220px;
     }  
+
+    .element-title h5{
+        font-size: large;
+        
+       
+    }
     
     
 }
