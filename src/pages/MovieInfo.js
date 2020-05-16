@@ -85,8 +85,7 @@ class MovieInfo extends Component {
           return (
             <div className="container-fluid" key={movie._id}>
               <div className="row">
-                {/* <div className="col-md-3 poster-container"> */}
-                <div className="col-md-3" className="poster-container">
+                <div className="col-md-3 poster-container">
                   <img src={moviePoster} className="card-image" alt="poster" />
                 </div>
                 {/* <div className="col-md-3" id="card-body-movie-list"> */}
@@ -109,7 +108,7 @@ class MovieInfo extends Component {
                       <small className="text-muted">Year: {movie.Year}</small>
                     </p>
                   </div>
-                {/* </div> */}
+                </div>
                 <div className="col-md-4" id="movie-info">
                   <h6 className="card-title"> MOVIE INFO </h6>
                   <p className="card-text">
@@ -125,7 +124,6 @@ class MovieInfo extends Component {
                 {localStorage.getItem("access_token") ? (
                   <div className="col-md-2" id="buttons">
                     <Link
-                      //className="text-decoration-none "
                       to={{
                         pathname: "/EditForm",
                         state: {
@@ -142,7 +140,6 @@ class MovieInfo extends Component {
                       </button>
                     </Link>
                     <WarningModal
-                      // history={this.props.history}
                       key={movie._id}
                       movieId={movie._id}
                       toggleOpenWarningModal={this.toggleOpenWarningModal}
@@ -153,8 +150,6 @@ class MovieInfo extends Component {
                   ""
                 )}
                 </div>
-                </div>
-            // </div>
           );
         })}
         <PaginationPage
