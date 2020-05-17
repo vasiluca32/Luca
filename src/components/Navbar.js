@@ -41,8 +41,10 @@ class Navbar extends Component {
   render() {
     let navbarUsername;
     let buttonLoginLogout;
+    let buttonAddMovie;
     if (localStorage.getItem("access_token") != null) {
       navbarUsername = localStorage.getItem("username");
+      buttonAddMovie = (<button className="btn btn-outline-light">AddMovie</button>)
       buttonLoginLogout = (
         <Link to="/Home">
           {" "}
@@ -176,7 +178,7 @@ class Navbar extends Component {
             </span>
             {/* <li className="nav-item ">{navbarUsername}</li> */}
             <Link to="/NewMovie">
-              <button className="btn btn-outline-light">AddMovie</button>
+              <button className="btn btn-outline-light">{buttonAddMovie}</button>
             </Link>
           </div>
         </div>
