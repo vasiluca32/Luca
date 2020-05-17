@@ -19,7 +19,12 @@ import MovieList from "./advanced-search-form/MovieList";
 import MovieDetails from "./MovieDetails";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import SearchByTitleNavbar from "../pages/SearchByTitleNavbar";
 import NewMovie from "../pages/NewMovie";
+import EditForm from "./EditForm/EditForm";
+import About from "../pages/About";
+import Help from "../pages/Help";
+
 
 export function Body() {
   return (
@@ -39,12 +44,16 @@ export function Body() {
       <Route exact path="/ADVENTURE" component={Adventure} />
       <Route exact path="/FANTASY" component={Fantasy} />
       <Route exact path="/FAMILY" component={Family} />
-      <Route exact path="/Advanced Search" component={AdvancedSearch} />
+      <Route exact path="/AdvancedSearch" component={AdvancedSearch} />
       <Route exact path="/MovieList" component={MovieList} />
       <Route exact path="/MovieDetails" component={MovieDetails} />
       <Route exact path="/Login" component={Login} />
       <Route exact path="/Register" component={Register} />
+      <Route exact path="/SearchByTitleNavbar" component={SearchByTitleNavbar}/>
       <Route exact path="/NewMovie" component={NewMovie} />
+      <Route exact path="/EditForm" component={EditForm} />
+      <Route exact path="/About" component={About} />
+      <Route exact path="/Help" component={Help} />
     </div>
   );
 }
