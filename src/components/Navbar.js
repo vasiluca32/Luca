@@ -6,8 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "./Navbar.css";
 
-import { withRouter } from 'react-router-dom';
-
+import { withRouter } from "react-router-dom";
 
 class Navbar extends Component {
   state = {
@@ -21,15 +20,11 @@ class Navbar extends Component {
   }
 
   searchMovies = (event) => {
-
-
-    if (event.key === 'Enter') {
-      this.props.history.push(
-        {
-          pathname: '/SearchByTitleNavbar',
-          title: this.state.title
-        }
-      );
+    if (event.key === "Enter") {
+      this.props.history.push({
+        pathname: "/SearchByTitleNavbar",
+        title: this.state.title,
+      });
 
       this.setState({ title: "" });
     }
@@ -46,7 +41,9 @@ class Navbar extends Component {
     let buttonAddMovie;
     if (localStorage.getItem("access_token") != null) {
       navbarUsername = localStorage.getItem("username");
-      buttonAddMovie = (<button className="btn btn-outline-light">AddMovie</button>)
+      buttonAddMovie = (
+        <button className="btn btn-outline-light">AddMovie</button>
+      );
       buttonLoginLogout = (
         <Link to="/Home">
           {" "}
@@ -181,7 +178,7 @@ class Navbar extends Component {
             ) : (
               ""
             )}
-            ;
+
             {localStorage.getItem("access_token") ? (
               <Link to="/NewMovie">
                 <button className="btn btn-outline-light">AddMovie</button>
