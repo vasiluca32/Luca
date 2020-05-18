@@ -5,12 +5,14 @@ import Logo from "../images/Logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "./Navbar.css";
+
 import { withRouter } from 'react-router-dom';
+
 
 class Navbar extends Component {
   state = {
-    title: ""
-  }
+    title: "",
+  };
 
   LogoutUser() {
     window.localStorage.removeItem("access_token");
@@ -18,8 +20,8 @@ class Navbar extends Component {
     // window.location.reload();
   }
 
-
   searchMovies = (event) => {
+
 
     if (event.key === 'Enter') {
       this.props.history.push(
@@ -28,15 +30,15 @@ class Navbar extends Component {
           title: this.state.title
         }
       );
+
       this.setState({ title: "" });
     }
-  }
-
+  };
 
   titleInput = (event) => {
     this.setState({ title: event.target.value });
     event.preventDefault();
-  }
+  };
 
   render() {
     let navbarUsername;
@@ -159,7 +161,6 @@ class Navbar extends Component {
               </li>
 
               <li className="nav-item ">
-
                 <input
                   className="form-control mr-sm-2"
                   type="text"
@@ -172,14 +173,22 @@ class Navbar extends Component {
               </li>
             </ul>
             <span className="nav-item ">{buttonLoginLogout}</span>
-            <span class="navbar-text-username">
-              <i class="fas fa-user"></i>
-              {navbarUsername}
-            </span>
-            {/* <li className="nav-item ">{navbarUsername}</li> */}
-            <Link to="/NewMovie">
-              <button className="btn btn-outline-light">AddMovie</button>
-            </Link>
+            {localStorage.getItem("access_token") ? (
+              <span class="navbar-text-username">
+                <i class="fas fa-user"></i>
+                {navbarUsername}
+              </span>
+            ) : (
+              ""
+            )}
+            ;
+            {localStorage.getItem("access_token") ? (
+              <Link to="/NewMovie">
+                <button className="btn btn-outline-light">AddMovie</button>
+              </Link>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </nav>
