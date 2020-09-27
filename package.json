@@ -1,6 +1,6 @@
 {
   "name": "movie",
-  "homepage": "https://vasiluca32.github.io/My-IMDB",
+  "homepage": "https://vasiluca32.github.io/movie",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
