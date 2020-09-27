@@ -3,7 +3,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Body } from "./components/Body";
-import { BrowserRouter as HashRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 class App extends Component {
 
