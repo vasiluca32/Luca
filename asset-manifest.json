@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/movie/static/css/main.1177895f.chunk.css",
-    "main.js": "/movie/static/js/main.2f9cf20f.chunk.js",
-    "main.js.map": "/movie/static/js/main.2f9cf20f.chunk.js.map",
-    "runtime-main.js": "/movie/static/js/runtime-main.2bc06d1f.js",
-    "runtime-main.js.map": "/movie/static/js/runtime-main.2bc06d1f.js.map",
-    "static/css/2.ed890e5e.chunk.css": "/movie/static/css/2.ed890e5e.chunk.css",
-    "static/js/2.1cd912a5.chunk.js": "/movie/static/js/2.1cd912a5.chunk.js",
-    "static/js/2.1cd912a5.chunk.js.map": "/movie/static/js/2.1cd912a5.chunk.js.map",
-    "index.html": "/movie/index.html",
-    "precache-manifest.36bb39663dd148e155314f86ec898175.js": "/movie/precache-manifest.36bb39663dd148e155314f86ec898175.js",
-    "service-worker.js": "/movie/service-worker.js",
-    "static/css/2.ed890e5e.chunk.css.map": "/movie/static/css/2.ed890e5e.chunk.css.map",
-    "static/css/main.1177895f.chunk.css.map": "/movie/static/css/main.1177895f.chunk.css.map",
-    "static/js/2.1cd912a5.chunk.js.LICENSE.txt": "/movie/static/js/2.1cd912a5.chunk.js.LICENSE.txt",
-    "static/media/Logo.png": "/movie/static/media/Logo.bb881c10.png",
-    "static/media/NoPoster.png": "/movie/static/media/NoPoster.205108d3.png",
-    "static/media/star.png": "/movie/static/media/star.509e3cd3.png"
+    "main.css": "/My-IMDB/static/css/main.1177895f.chunk.css",
+    "main.js": "/My-IMDB/static/js/main.9345f81f.chunk.js",
+    "main.js.map": "/My-IMDB/static/js/main.9345f81f.chunk.js.map",
+    "runtime-main.js": "/My-IMDB/static/js/runtime-main.de9b6151.js",
+    "runtime-main.js.map": "/My-IMDB/static/js/runtime-main.de9b6151.js.map",
+    "static/css/2.ed890e5e.chunk.css": "/My-IMDB/static/css/2.ed890e5e.chunk.css",
+    "static/js/2.6c90ab20.chunk.js": "/My-IMDB/static/js/2.6c90ab20.chunk.js",
+    "static/js/2.6c90ab20.chunk.js.map": "/My-IMDB/static/js/2.6c90ab20.chunk.js.map",
+    "index.html": "/My-IMDB/index.html",
+    "precache-manifest.ad93341564c5da36d131f01ae12ed732.js": "/My-IMDB/precache-manifest.ad93341564c5da36d131f01ae12ed732.js",
+    "service-worker.js": "/My-IMDB/service-worker.js",
+    "static/css/2.ed890e5e.chunk.css.map": "/My-IMDB/static/css/2.ed890e5e.chunk.css.map",
+    "static/css/main.1177895f.chunk.css.map": "/My-IMDB/static/css/main.1177895f.chunk.css.map",
+    "static/js/2.6c90ab20.chunk.js.LICENSE.txt": "/My-IMDB/static/js/2.6c90ab20.chunk.js.LICENSE.txt",
+    "static/media/Logo.png": "/My-IMDB/static/media/Logo.bb881c10.png",
+    "static/media/NoPoster.png": "/My-IMDB/static/media/NoPoster.205108d3.png",
+    "static/media/star.png": "/My-IMDB/static/media/star.509e3cd3.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.2bc06d1f.js",
+    "static/js/runtime-main.de9b6151.js",
     "static/css/2.ed890e5e.chunk.css",
-    "static/js/2.1cd912a5.chunk.js",
+    "static/js/2.6c90ab20.chunk.js",
     "static/css/main.1177895f.chunk.css",
-    "static/js/main.2f9cf20f.chunk.js"
+    "static/js/main.9345f81f.chunk.js"
   ]
 }
